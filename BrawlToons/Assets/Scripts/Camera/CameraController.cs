@@ -22,13 +22,18 @@ public class CameraController : MonoBehaviour
      void Start()
      {
          distanceInitialBetweenPlayers = Vector3.Distance(player1.transform.position, player2.transform.position);
-         intermediatePosition = Vector3.Lerp(player1.transform.position, player2.transform.position, 0.5f);
+        distanceBetweenPlayers = distanceInitialBetweenPlayers;
+        intermediatePosition = Vector3.Lerp(player1.transform.position, player2.transform.position, 0.5f);
          intermediateObject.transform.position = intermediatePosition;
          distanceInitialBetweenCameraAndMidPoint = Vector3.Distance(mainCamera.transform.position, intermediateObject.transform.position);
          standardDistanceUnit = (distanceInitialBetweenCameraAndMidPoint / distanceBetweenPlayers);
          if (cameraMaxDistanceAllowed <= cameraMinDistanceAllowed) { cameraMaxDistanceAllowed = (cameraMinDistanceAllowed + 1); }
          if (playersMaxDistanceAllowed <= distanceInitialBetweenPlayers) { playersMaxDistanceAllowed = distanceInitialBetweenPlayers; }
-     }
+         Debug.Log("Distance between players: " + distanceBetweenPlayers);
+        Debug.Log("Distance between players initial: " + distanceInitialBetweenPlayers);
+        Debug.Log("Distance between camera and mid point initial: " + distanceInitialBetweenCameraAndMidPoint);
+        Debug.Log("Standard distance unit: " + standardDistanceUnit);
+    }
      public void IntermediatePosition()
      {
          intermediatePosition = Vector3.Lerp(player1.transform.position, player2.transform.position, 0.5f);
@@ -45,13 +50,13 @@ public class CameraController : MonoBehaviour
              mainCamera.transform.position = new Vector3(intermediateObject.transform.position.x, (intermediateObject.transform.position.y + cameraGapY), mainCamera.transform.position.z);
          }
          distanceBetweenPlayers = Vector3.Distance(player1.transform.position, player2.transform.position);
-         if (distanceBetweenPlayers < cameraMinDistanceAllowed) { player1ActualPosX = player1.transform.position.x; player2ActualPosX = player2.transform.position.x; }
+         if (distanceBetweenPlayers < playersMaxDistanceAllowed) { player1ActualPosX = player1.transform.position.x; player2ActualPosX = player2.transform.position.x; }
          else
          {
              player1.transform.position = new Vector3(player1ActualPosX, player1.transform.position.y, player1.transform.position.z);
              player2.transform.position = new Vector3(player2ActualPosX, player2.transform.position.y, player2.transform.position.z);
          }
-         if(mainCamera.transform.position.y < (cameraInitialHeight + cameraMaxHeightAllowed)) { cameraInitialHeight = transform.position.y; }
+         if(mainCamera.transform.position.y < (cameraInitialHeight + cameraMaxHeightAllowed)) { cameraActualHeight = mainCamera.transform.position.y; }
          else { mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, cameraActualHeight, mainCamera.transform.position.z);}
          if (establishCameraInitialPos) { cameraActualHeight = mainCamera.transform.position.y; establishCameraInitialPos = false; }
      }
