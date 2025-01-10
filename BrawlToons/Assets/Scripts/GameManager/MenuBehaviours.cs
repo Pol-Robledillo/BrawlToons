@@ -18,18 +18,22 @@ public class MenuBehaviours : MonoBehaviour
     }
     public void OpenSettings()
     {
+        mainMenu.enabled = false;
         settings.enabled = true;
     }
     public void CloseSettings()
     {
         settings.enabled = false;
+        mainMenu.enabled = true;
     }
     public void OpenLogin()
     {
+        mainMenu.enabled = false;
         login.enabled = true;
     }
     public void CloseLogin()
     {
         login.enabled = false;
+        mainMenu.enabled = true;
     }
 }
