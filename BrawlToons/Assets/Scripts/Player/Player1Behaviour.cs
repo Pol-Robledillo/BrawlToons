@@ -4,47 +4,60 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class Player1Behaviour : MonoBehaviour
 {
-    Player player;
+
     public float moveSpeed = 5f;
-    Vector2 moveInput;
+    public Vector2 moveInput;
+    public enum Player1State
+    {
+        Idle,
+        Walking,
+        Jumping,
+        Hurt,
+        Attacking,
+    }
+    public Player1State currentState= Player1State.Idle;
     void Awake()
     {
-        player = new Player();
+        
+    }
+    private void Start()
+    {
+        
+
     }
 
-    private void OnEnable()
-    {
-        player.Enable();
-        player.Player1.WalkLeft.performed += OnMoveLeft;
-        player.Player1.WalkRight.performed += OnMoveRight;
-        player.Player1.WalkLeft.canceled += ctx => OnMoveCancel();
-        player.Player1.WalkRight.canceled += ctx => OnMoveCancel();
-    }
-    private void OnDisable()
-    {
-        player.Disable();
-        player.Player1.WalkLeft.performed -= OnMoveLeft;
-        player.Player1.WalkRight.performed -= OnMoveRight;
-    }
+    
     void Update()
+    {
+        
+        switch(currentState)
+        {
+            case Player1State.Idle:
+                Idle();
+                break;
+            case Player1State.Walking:
+                Walking();
+                break;
+            case Player1State.Jumping:
+                break;
+            case Player1State.Hurt:
+                break;
+            case Player1State.Attacking:
+                break;
+        }
+    }
+    public void Walking()
     {
         transform.Translate(moveInput.x * moveSpeed * Time.deltaTime, 0f, 0f);
     }
-
-    void OnMoveLeft(InputAction.CallbackContext context)
-    {
-        moveInput = Vector2.left;
-    }
-
-    void OnMoveRight(InputAction.CallbackContext context)
-    {
-        moveInput = Vector2.right;
-    }
-    void OnMoveCancel()
+    
+    public void Idle()
     {
         moveInput = Vector2.zero;
+        
     }
+    
 }
-    // Update is called once per frame
+
     
 

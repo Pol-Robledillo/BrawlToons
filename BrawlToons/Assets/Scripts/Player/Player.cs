@@ -28,22 +28,13 @@ public partial class @Player: IInputActionCollection2, IDisposable
             ""id"": ""9ef91328-f352-4728-b139-6f57c3c7f550"",
             ""actions"": [
                 {
-                    ""name"": ""WalkLeft"",
-                    ""type"": ""Button"",
-                    ""id"": ""3c8863a3-9418-4f9b-8478-63b1b7eff780"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""WalkRight"",
-                    ""type"": ""Button"",
+                    ""name"": ""Walk"",
+                    ""type"": ""Value"",
                     ""id"": ""928f5571-4cd1-4745-9cf1-44176d6df6d4"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Crouch"",
@@ -93,48 +84,114 @@ public partial class @Player: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""0a86af3d-04d3-4b3c-a324-ca71a145d83a"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""a386c373-9608-4e0a-bb1f-c63861050285"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""WalkLeft"",
-                    ""isComposite"": false,
+                    ""action"": ""Walk"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""5389ce86-6e2e-4bd2-baa3-52664f9a1a83"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""name"": ""up"",
+                    ""id"": ""6bce3ff8-1f7f-47e0-865f-b7b58545e2d5"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""WalkLeft"",
+                    ""action"": ""Walk"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""815d1e32-057b-48d3-9a19-297abf874f2e"",
+                    ""name"": ""down"",
+                    ""id"": ""417d1606-402c-444b-ad82-275961006c46"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""53cc4650-9676-4b9c-96e2-ca50ebe13ec6"",
+                    ""path"": ""<Keyboard>/#(A)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""f741d037-27df-43d4-a2b8-6e6a38d4c3aa"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""WalkRight"",
+                    ""action"": ""Walk"",
                     ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""99490793-8c1d-46ca-80fb-f6e1e19e83b0"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""887cd60e-2f3a-43c3-b8e8-c6db6e6368ca"",
+                    ""name"": ""up"",
+                    ""id"": ""336b60db-9575-4661-83c6-9d16a5019ede"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""815a8233-4b77-4f59-b7bf-dd5c1f39ffff"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""9fd93abe-b739-4ace-a42d-8821c6f43d79"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""214ed584-b2a3-49bd-bb9b-ea5c04bdf9d5"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""WalkRight"",
+                    ""action"": ""Walk"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -242,22 +299,13 @@ public partial class @Player: IInputActionCollection2, IDisposable
             ""id"": ""9ac52ec5-5ffa-4fa2-b29b-bb65dbd2f0e0"",
             ""actions"": [
                 {
-                    ""name"": ""WalkLeft"",
-                    ""type"": ""Button"",
+                    ""name"": ""Walk"",
+                    ""type"": ""Value"",
                     ""id"": ""53ed9e03-bdb3-4278-a666-6bb69848fd97"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""WalkRight"",
-                    ""type"": ""Button"",
-                    ""id"": ""587a71ec-d0f3-4a07-a419-a1cdf1200a07"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Crouch"",
@@ -307,48 +355,59 @@ public partial class @Player: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""5422cd7c-a20d-4e42-8481-f45a6118155d"",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""03034150-3dc3-4cd8-9148-3f813e70ca9f"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""ccfd12a9-947e-4c39-92f7-f1b16ea75c1a"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""23b61a9b-9282-4cfd-9797-e042fea225d0"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""99a6e97f-675a-4a1b-881a-2802c3a70cd4"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""WalkLeft"",
+                    ""action"": ""Walk"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""272fdb02-71dc-495d-b955-505699ba1e51"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""WalkLeft"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b7ae55bc-ee9f-4e4c-9990-dfa82a363ebb"",
+                    ""name"": ""right"",
+                    ""id"": ""62ad5706-0d04-450f-8c42-94e565cb0ccc"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""WalkRight"",
+                    ""action"": ""Walk"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d7dc39a1-d458-477f-9cf7-682b67223f3c"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""WalkRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -456,8 +515,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
 }");
         // Player1
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
-        m_Player1_WalkLeft = m_Player1.FindAction("WalkLeft", throwIfNotFound: true);
-        m_Player1_WalkRight = m_Player1.FindAction("WalkRight", throwIfNotFound: true);
+        m_Player1_Walk = m_Player1.FindAction("Walk", throwIfNotFound: true);
         m_Player1_Crouch = m_Player1.FindAction("Crouch", throwIfNotFound: true);
         m_Player1_Block = m_Player1.FindAction("Block", throwIfNotFound: true);
         m_Player1_Punch = m_Player1.FindAction("Punch", throwIfNotFound: true);
@@ -465,8 +523,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
         m_Player1_Special = m_Player1.FindAction("Special", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
-        m_Player2_WalkLeft = m_Player2.FindAction("WalkLeft", throwIfNotFound: true);
-        m_Player2_WalkRight = m_Player2.FindAction("WalkRight", throwIfNotFound: true);
+        m_Player2_Walk = m_Player2.FindAction("Walk", throwIfNotFound: true);
         m_Player2_Crouch = m_Player2.FindAction("Crouch", throwIfNotFound: true);
         m_Player2_Block = m_Player2.FindAction("Block", throwIfNotFound: true);
         m_Player2_Punch = m_Player2.FindAction("Punch", throwIfNotFound: true);
@@ -533,8 +590,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
     // Player1
     private readonly InputActionMap m_Player1;
     private List<IPlayer1Actions> m_Player1ActionsCallbackInterfaces = new List<IPlayer1Actions>();
-    private readonly InputAction m_Player1_WalkLeft;
-    private readonly InputAction m_Player1_WalkRight;
+    private readonly InputAction m_Player1_Walk;
     private readonly InputAction m_Player1_Crouch;
     private readonly InputAction m_Player1_Block;
     private readonly InputAction m_Player1_Punch;
@@ -544,8 +600,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
     {
         private @Player m_Wrapper;
         public Player1Actions(@Player wrapper) { m_Wrapper = wrapper; }
-        public InputAction @WalkLeft => m_Wrapper.m_Player1_WalkLeft;
-        public InputAction @WalkRight => m_Wrapper.m_Player1_WalkRight;
+        public InputAction @Walk => m_Wrapper.m_Player1_Walk;
         public InputAction @Crouch => m_Wrapper.m_Player1_Crouch;
         public InputAction @Block => m_Wrapper.m_Player1_Block;
         public InputAction @Punch => m_Wrapper.m_Player1_Punch;
@@ -560,12 +615,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_Player1ActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_Player1ActionsCallbackInterfaces.Add(instance);
-            @WalkLeft.started += instance.OnWalkLeft;
-            @WalkLeft.performed += instance.OnWalkLeft;
-            @WalkLeft.canceled += instance.OnWalkLeft;
-            @WalkRight.started += instance.OnWalkRight;
-            @WalkRight.performed += instance.OnWalkRight;
-            @WalkRight.canceled += instance.OnWalkRight;
+            @Walk.started += instance.OnWalk;
+            @Walk.performed += instance.OnWalk;
+            @Walk.canceled += instance.OnWalk;
             @Crouch.started += instance.OnCrouch;
             @Crouch.performed += instance.OnCrouch;
             @Crouch.canceled += instance.OnCrouch;
@@ -585,12 +637,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IPlayer1Actions instance)
         {
-            @WalkLeft.started -= instance.OnWalkLeft;
-            @WalkLeft.performed -= instance.OnWalkLeft;
-            @WalkLeft.canceled -= instance.OnWalkLeft;
-            @WalkRight.started -= instance.OnWalkRight;
-            @WalkRight.performed -= instance.OnWalkRight;
-            @WalkRight.canceled -= instance.OnWalkRight;
+            @Walk.started -= instance.OnWalk;
+            @Walk.performed -= instance.OnWalk;
+            @Walk.canceled -= instance.OnWalk;
             @Crouch.started -= instance.OnCrouch;
             @Crouch.performed -= instance.OnCrouch;
             @Crouch.canceled -= instance.OnCrouch;
@@ -627,8 +676,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
     // Player2
     private readonly InputActionMap m_Player2;
     private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
-    private readonly InputAction m_Player2_WalkLeft;
-    private readonly InputAction m_Player2_WalkRight;
+    private readonly InputAction m_Player2_Walk;
     private readonly InputAction m_Player2_Crouch;
     private readonly InputAction m_Player2_Block;
     private readonly InputAction m_Player2_Punch;
@@ -638,8 +686,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
     {
         private @Player m_Wrapper;
         public Player2Actions(@Player wrapper) { m_Wrapper = wrapper; }
-        public InputAction @WalkLeft => m_Wrapper.m_Player2_WalkLeft;
-        public InputAction @WalkRight => m_Wrapper.m_Player2_WalkRight;
+        public InputAction @Walk => m_Wrapper.m_Player2_Walk;
         public InputAction @Crouch => m_Wrapper.m_Player2_Crouch;
         public InputAction @Block => m_Wrapper.m_Player2_Block;
         public InputAction @Punch => m_Wrapper.m_Player2_Punch;
@@ -654,12 +701,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_Player2ActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_Player2ActionsCallbackInterfaces.Add(instance);
-            @WalkLeft.started += instance.OnWalkLeft;
-            @WalkLeft.performed += instance.OnWalkLeft;
-            @WalkLeft.canceled += instance.OnWalkLeft;
-            @WalkRight.started += instance.OnWalkRight;
-            @WalkRight.performed += instance.OnWalkRight;
-            @WalkRight.canceled += instance.OnWalkRight;
+            @Walk.started += instance.OnWalk;
+            @Walk.performed += instance.OnWalk;
+            @Walk.canceled += instance.OnWalk;
             @Crouch.started += instance.OnCrouch;
             @Crouch.performed += instance.OnCrouch;
             @Crouch.canceled += instance.OnCrouch;
@@ -679,12 +723,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IPlayer2Actions instance)
         {
-            @WalkLeft.started -= instance.OnWalkLeft;
-            @WalkLeft.performed -= instance.OnWalkLeft;
-            @WalkLeft.canceled -= instance.OnWalkLeft;
-            @WalkRight.started -= instance.OnWalkRight;
-            @WalkRight.performed -= instance.OnWalkRight;
-            @WalkRight.canceled -= instance.OnWalkRight;
+            @Walk.started -= instance.OnWalk;
+            @Walk.performed -= instance.OnWalk;
+            @Walk.canceled -= instance.OnWalk;
             @Crouch.started -= instance.OnCrouch;
             @Crouch.performed -= instance.OnCrouch;
             @Crouch.canceled -= instance.OnCrouch;
@@ -719,8 +760,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
     public Player2Actions @Player2 => new Player2Actions(this);
     public interface IPlayer1Actions
     {
-        void OnWalkLeft(InputAction.CallbackContext context);
-        void OnWalkRight(InputAction.CallbackContext context);
+        void OnWalk(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
         void OnPunch(InputAction.CallbackContext context);
@@ -729,8 +769,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
     }
     public interface IPlayer2Actions
     {
-        void OnWalkLeft(InputAction.CallbackContext context);
-        void OnWalkRight(InputAction.CallbackContext context);
+        void OnWalk(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
         void OnPunch(InputAction.CallbackContext context);
