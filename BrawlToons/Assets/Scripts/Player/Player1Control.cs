@@ -8,27 +8,31 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
 {
     private Player1Behaviour player1Behaviour;
     Player player;
+    private Animator animator;
+
     void Awake()
     {
         player = new Player();
         player.Player1.SetCallbacks(this);
+        animator = GetComponentInChildren<Animator>();
     }
+
     void Start()
     {
         player1Behaviour = GetComponent<Player1Behaviour>();
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+       // Debug.Log(collision.GetContacts);
+    }
     private void OnEnable()
     {
         player.Enable();
-        
-
     }
     private void OnDisable()
     {
@@ -56,7 +60,7 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
 
     public void OnPunch(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        animator.SetBool("attack", true);
     }
 
     public void OnKick(InputAction.CallbackContext context)

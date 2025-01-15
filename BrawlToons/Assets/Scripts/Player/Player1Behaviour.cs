@@ -15,7 +15,7 @@ public class Player1Behaviour : MonoBehaviour
         Hurt,
         Attacking,
     }
-    public Player1State currentState= Player1State.Idle;
+    public Player1State currentState = Player1State.Idle;
     void Awake()
     {
         
@@ -55,6 +55,10 @@ public class Player1Behaviour : MonoBehaviour
     {
         moveInput = Vector2.zero;
         
+    }
+    public void Attacking()
+    {
+
     }
     
 }
