@@ -16,20 +16,9 @@ public class Player1Behaviour : MonoBehaviour
         Attacking,
     }
     public Player1State currentState = Player1State.Idle;
-    void Awake()
-    {
-        
-    }
-    private void Start()
-    {
-        
-
-    }
-
     
     void Update()
     {
-        
         switch(currentState)
         {
             case Player1State.Idle:
@@ -55,10 +44,6 @@ public class Player1Behaviour : MonoBehaviour
     {
         moveInput = Vector2.zero;
         
-    }
-    public void Attacking()
-    {
-
     }
     
 }

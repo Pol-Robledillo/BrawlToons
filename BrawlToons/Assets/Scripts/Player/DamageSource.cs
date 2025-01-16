@@ -5,20 +5,15 @@ using UnityEngine;
 public class DamageSource : MonoBehaviour
 {
     [SerializeField] private int damage;
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
+        if (other.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
             if (damageable != null)
             {
-                Debug.Log("¡Colisión con Player2! Se le ha aplicado daño.");
-
+                //Debug.Log("¡Colisión con Player2! Se le ha aplicado daño.");
                 damageable.TakeDamage(damage);
             }
         }
-    }
-    private void OnCollisionStay(Collision collision)
-    {
-        Debug.Log("CHOCANDO");
     }
 }

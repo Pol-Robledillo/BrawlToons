@@ -10,7 +10,7 @@ public class Character : MonoBehaviour, IDamageable
 
         if (health <= 0)
         {
-            Debug.Log("La palme");
+            Destroy(gameObject);
         }
 
         Debug.Log("El personaje recibió " + damage + " de daño. Salud restante: " + health);

@@ -22,14 +22,6 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
         player1Behaviour = GetComponent<Player1Behaviour>();
     }
 
-    void Update()
-    {
-        
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-       // Debug.Log(collision.GetContacts);
-    }
     private void OnEnable()
     {
         player.Enable();

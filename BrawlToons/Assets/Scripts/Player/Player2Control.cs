@@ -8,10 +8,13 @@ public class Player2Control : MonoBehaviour, Player.IPlayer2Actions
 {
     private Player2Behaviour player2Behaviour;
     Player player;
+    private Animator animator;
+
     void Awake()
     {
         player = new Player();
         player.Player2.SetCallbacks(this);
+        animator = GetComponentInChildren<Animator>();
     }
     void Start()
     {
@@ -19,11 +22,6 @@ public class Player2Control : MonoBehaviour, Player.IPlayer2Actions
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnEnable()
     {
         player.Enable();
@@ -39,7 +37,6 @@ public class Player2Control : MonoBehaviour, Player.IPlayer2Actions
     {
         Vector2 input = context.ReadValue<Vector2>();
         player2Behaviour.moveInput = input;
-        Debug.Log("Player 2 is walking");
         player2Behaviour.currentState = Player2Behaviour.Player2State.Walking;
     }
 
@@ -55,7 +52,7 @@ public class Player2Control : MonoBehaviour, Player.IPlayer2Actions
 
     public void OnPunch(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        animator.SetBool("attack", true);
     }
 
     public void OnKick(InputAction.CallbackContext context)

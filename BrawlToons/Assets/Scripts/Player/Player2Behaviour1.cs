@@ -15,20 +15,9 @@ public class Player2Behaviour : MonoBehaviour
         Attacking,
     }
     public Player2State currentState = Player2State.Idle;
-    void Awake()
-    {
-
-    }
-    private void Start()
-    {
-
-
-    }
-
 
     void Update()
     {
-
         switch (currentState)
         {
             case Player2State.Idle:
@@ -57,6 +46,5 @@ public class Player2Behaviour : MonoBehaviour
     }
    
 }
-    // Update is called once per frame
-    
+ 
 
