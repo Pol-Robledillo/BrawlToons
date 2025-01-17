@@ -57,7 +57,7 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
 
     public void OnKick(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        animator.SetBool("kick", true);
     }
 
     public void OnSpecial(InputAction.CallbackContext context)

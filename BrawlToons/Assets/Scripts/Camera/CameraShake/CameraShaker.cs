@@ -15,11 +15,11 @@ namespace EZCameraShake
         /// <summary>
         /// The default position influcence of all shakes created by this shaker.
         /// </summary>
-        public Vector3 DefaultPosInfluence = new Vector3(0.15f, 0.15f, 0.15f);
+        public Vector3 DefaultPosInfluence = new Vector3(0.15f, 0.15f, 0f);
         /// <summary>
         /// The default rotation influcence of all shakes created by this shaker.
         /// </summary>
-        public Vector3 DefaultRotInfluence = new Vector3(1, 1, 1);
+        public Vector3 DefaultRotInfluence = new Vector3(1, 1, 0);
         /// <summary>
         /// Offset that will be applied to the camera's default (0,0,0) rest position
         /// </summary>
@@ -62,7 +62,7 @@ namespace EZCameraShake
                     rotAddShake += CameraUtilities.MultiplyVectors(c.UpdateShake(), c.RotationInfluence);
                 }
             }
-
+            RestPositionOffset = new Vector3(RestPositionOffset.x, RestPositionOffset.y, Camera.main.transform.position.z);
             transform.localPosition = posAddShake + RestPositionOffset;
             transform.localEulerAngles = rotAddShake + RestRotationOffset;
         }
