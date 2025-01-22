@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
 {
+    public bool isAttacking = false;
     private Player1Behaviour player1Behaviour;
     Player player;
     private Animator animator;

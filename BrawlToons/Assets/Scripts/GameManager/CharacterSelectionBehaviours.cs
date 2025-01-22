@@ -54,4 +54,8 @@ public class CharacterSelectionBehaviours : MonoBehaviour
             SceneManager.LoadScene("Combat");
         }
     }
+    public void GoBack()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
