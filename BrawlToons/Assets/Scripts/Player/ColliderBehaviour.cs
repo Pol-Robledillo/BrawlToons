@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class ColliderBehaviour : MonoBehaviour
 {
-    [SerializeField] private Collider collider;
+    [SerializeField] private Collider punchCollider;
+    [SerializeField] private Collider kickCollider;
     private void Start()
     {
-        collider.enabled = false;
+        punchCollider.enabled = false;
+        kickCollider.enabled = false;
     }
     public void EnableCollider()
     {
-        collider.enabled = true;
+        punchCollider.enabled = true;
     }
     public void DisableCollider()
     {
-        collider.enabled = false;
+        punchCollider.enabled = false;
+    }
+    public void KickEnableCollider()
+    {
+        kickCollider.enabled = true;
+    }
+    public void KickDisableCollider()
+    {
+        kickCollider.enabled = false;
     }
 }
