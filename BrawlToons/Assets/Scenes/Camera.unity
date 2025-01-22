@@ -1918,6 +1918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2f1221372b12a48b321879be366ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAttacking: 0
 --- !u!114 &1579751659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1933,6 +1934,8 @@ MonoBehaviour:
   moveSpeed: 5
   moveInput: {x: 0, y: 0}
   currentState: 0
+  knockbackForce: 0.3
+  knockbackDuration: 0.1
 --- !u!114 &1579751660
 MonoBehaviour:
   m_ObjectHideFlags: 0
