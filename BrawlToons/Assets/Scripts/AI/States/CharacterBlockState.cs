@@ -8,16 +8,28 @@ public class CharacterBlockState : ACharacterAIState
 {
     public override void EnterState(CharacterAI character)
     {
-        throw new NotImplementedException();
+        character.isBlocking = true;
+        character.anim.SetBool("isBlocking", character.isBlocking);
     }
 
     public override void ExitState(CharacterAI character)
     {
-        throw new NotImplementedException();
+        character.isBlocking = false;
+        character.anim.SetBool("isBlocking", character.isBlocking);
     }
 
     public override void UpdateState(CharacterAI character)
     {
-        throw new NotImplementedException();
+        if (character.player.GetComponent<Player1Behaviour>().currentState != Player1Behaviour.Player1State.Attacking)
+        {
+            if(character.playerInRange)
+            {
+                character.ChangeState(character.attackState);
+            }
+            else
+            {
+                character.ChangeState(character.idleState);
+            }
+        }
     }
 }
