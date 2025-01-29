@@ -8,16 +8,14 @@ public class CharacterDefeatState : ACharacterAIState
 {
     public override void EnterState(CharacterAI character)
     {
-        throw new NotImplementedException();
+        character.anim.SetBool("isDefeated", true);
     }
 
     public override void ExitState(CharacterAI character)
     {
-        throw new NotImplementedException();
     }
 
     public override void UpdateState(CharacterAI character)
     {
-        throw new NotImplementedException();
     }
 }

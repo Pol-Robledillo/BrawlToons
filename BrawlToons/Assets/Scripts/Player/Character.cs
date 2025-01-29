@@ -1,4 +1,5 @@
 using EZCameraShake;
+using System;
 using UnityEngine;
 
 public class Character : MonoBehaviour, IDamageable
@@ -38,14 +39,22 @@ public class Character : MonoBehaviour, IDamageable
         }
         catch
         {
-            Player2Behaviour player2Behaviour = GetComponent<Player2Behaviour>();
-            player2Behaviour.currentState = Player2Behaviour.Player2State.Hurt;
+            try
+            {
+                Player2Behaviour player2Behaviour = GetComponent<Player2Behaviour>();
+                player2Behaviour.currentState = Player2Behaviour.Player2State.Hurt;
+                Debug.Log("Player 2 Hit");
+            }
+            catch
+            {
+                CharacterAI characterAI = GetComponent<CharacterAI>();
+                characterAI.currentState = characterAI.hurtState;
+                Debug.Log("AI Hit");
+            }
         }
-
         if (health <= 0)
         {
             //Destroy(gameObject);
         }
-
     }
 }

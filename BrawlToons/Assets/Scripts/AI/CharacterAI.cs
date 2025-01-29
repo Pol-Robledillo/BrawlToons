@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class CharacterAI : MonoBehaviour
 {
+    public CharacterIdleState idleState;
+    public CharacterMoveState moveState;
+    public CharacterAttackState attackState;
+    public CharacterBlockState blockState;
+    public CharacterDefeatState defeatState;
+    public CharacterHurtState hurtState;
+
     public GameObject player;
     public Animator anim;
     public SphereCollider attackRange;
     public ACharacterAIState currentState;
 
-    public CharacterIdleState idleState = new CharacterIdleState();
-    public CharacterMoveState moveState = new CharacterMoveState();
-    public CharacterAttackState attackState = new CharacterAttackState();
-    public CharacterBlockState blockState = new CharacterBlockState();
-    public CharacterDefeatState defeatState = new CharacterDefeatState();
+    public float moveSpeed = 5f;
+    public bool playerInRange = false, isBlocking = false;
+    public int health = 100;
 
     private void Start()
     {
+        idleState = new CharacterIdleState();
+        moveState = new CharacterMoveState();
+        attackState = new CharacterAttackState();
+        blockState = new CharacterBlockState();
+        defeatState = new CharacterDefeatState();
+        hurtState = new CharacterHurtState();
+
         player = GameObject.FindGameObjectWithTag("Player");
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         attackRange = GetComponent<SphereCollider>();
         currentState = idleState;
 
@@ -26,12 +38,38 @@ public class CharacterAI : MonoBehaviour
     }
     private void Update()
     {
-        currentState.UpdateState(this);
+        if (CheckIfAlive())
+        {
+            currentState.UpdateState(this);
+        }
     }
     public void ChangeState(ACharacterAIState newState)
     {
         currentState.ExitState(this);
         currentState = newState;
         currentState.EnterState(this);
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
+    }
+    public bool CheckIfAlive()
+    {
+        if (health <= 0)
+        {
+            ChangeState(defeatState);
+            return false;
+        }
+        return true;
     }
 }

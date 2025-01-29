@@ -8,16 +8,31 @@ public class CharacterAttackState : ACharacterAIState
 {
     public override void EnterState(CharacterAI character)
     {
-        throw new NotImplementedException();
+        ExecuteAttack(character);
     }
 
-    public override void ExitState(CharacterAI character)
-    {
-        throw new NotImplementedException();
-    }
+    public override void ExitState(CharacterAI character) { }
 
     public override void UpdateState(CharacterAI character)
     {
-        throw new NotImplementedException();
+        if (character.playerInRange)
+        {
+            ExecuteAttack(character);
+        }
+        else
+        {
+            character.ChangeState(character.idleState);
+        }
+    }
+    private void ExecuteAttack(CharacterAI character)
+    {
+        if (new Random().Next(0, 2) == 0)
+        {
+            character.anim.SetBool("attack", true);
+        }
+        else
+        {
+            character.anim.SetBool("kick", true);
+        }
     }
 }
