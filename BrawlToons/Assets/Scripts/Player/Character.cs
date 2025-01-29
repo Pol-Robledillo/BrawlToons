@@ -20,7 +20,6 @@ public class Character : MonoBehaviour, IDamageable
         {
             Player1Behaviour player1Behaviour = GetComponent<Player1Behaviour>();
             player1Behaviour.currentState = Player1Behaviour.Player1State.Hurt;
-            Debug.Log("Player 1 Hit");
         }
         catch
         {
@@ -37,7 +36,6 @@ public class Character : MonoBehaviour, IDamageable
                 Debug.Log("AI Hit");
             }
         }
-
         if (health <= 0)
         {
             //Destroy(gameObject);
