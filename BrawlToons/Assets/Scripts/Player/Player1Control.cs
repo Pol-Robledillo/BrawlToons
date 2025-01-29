@@ -10,9 +10,20 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
     private Player1Behaviour player1Behaviour;
     Player player;
     private Animator animator;
+    public static Player1Control Instance { get; private set; } // La instancia estática
+    public bool reduceDamage = false;
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         player = new Player();
         player.Player1.SetCallbacks(this);
         animator = GetComponentInChildren<Animator>();
@@ -48,7 +59,8 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
 
     public void OnBlock(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        reduceDamage = true;
+        animator.SetBool("block", true);
     }
 
     public void OnPunch(InputAction.CallbackContext context)

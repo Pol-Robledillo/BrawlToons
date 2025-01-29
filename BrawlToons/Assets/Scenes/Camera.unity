@@ -412,6 +412,8 @@ MonoBehaviour:
   moveSpeed: 5
   moveInput: {x: 0, y: 0}
   currentState: 0
+  knockbackForce: 0.3
+  knockbackDuration: 0.1
 --- !u!114 &172846095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,7 +505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &323133952
 RectTransform:
   m_ObjectHideFlags: 0
@@ -952,7 +954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &823330983
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1488,7 +1490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1209301394
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1919,6 +1921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAttacking: 0
+  reduceDamage: 0
 --- !u!114 &1579751659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2658,7 +2661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2060081782
 RectTransform:
   m_ObjectHideFlags: 0

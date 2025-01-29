@@ -9,9 +9,20 @@ public class Player2Control : MonoBehaviour, Player.IPlayer2Actions
     private Player2Behaviour player2Behaviour;
     Player player;
     private Animator animator;
+    public static Player2Control Instance { get; private set; } // La instancia estática
+    public bool reduceDamageP2 = false;
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         player = new Player();
         player.Player2.SetCallbacks(this);
         animator = GetComponentInChildren<Animator>();
@@ -47,7 +58,8 @@ public class Player2Control : MonoBehaviour, Player.IPlayer2Actions
 
     public void OnBlock(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        reduceDamageP2 = true;
+        animator.SetBool("block", true);
     }
 
     public void OnPunch(InputAction.CallbackContext context)

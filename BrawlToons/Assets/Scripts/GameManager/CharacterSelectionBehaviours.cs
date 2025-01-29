@@ -51,7 +51,7 @@ public class CharacterSelectionBehaviours : MonoBehaviour
     {
         if (characterOneSelected && characterTwoSelected)
         {
-            SceneManager.LoadScene("Combat");
+            SceneManager.LoadScene("Camera");
         }
     }
     public void GoBack()

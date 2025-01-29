@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour, IDamageable
 {
+
     public int maxHealth = 100;
     public int health = 100;
 
@@ -10,9 +11,24 @@ public class Character : MonoBehaviour, IDamageable
     {
         health = maxHealth;
     }
-
+ 
+    public void Initialize(int initialHealth)
+    {
+        maxHealth = initialHealth;
+        health = maxHealth;
+    }
     public void TakeDamage(int damage)
     {
+        if (Player2Control.Instance.reduceDamageP2)
+        {
+            damage = Mathf.RoundToInt(damage - (damage * 0.8f));
+        }
+        if (Player1Control.Instance.reduceDamage)
+        {
+            damage = Mathf.RoundToInt(damage - (damage * 0.8f));
+        }
+
+
         health -= damage;
         CameraShaker.Instance.ShakeOnce(2f, 3f, 0.1f, 0.5f);
         try
