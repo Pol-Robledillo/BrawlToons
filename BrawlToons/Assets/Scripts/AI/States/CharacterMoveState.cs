@@ -15,7 +15,7 @@ public class CharacterMoveState : ACharacterAIState
     {
         if (character.playerInRange)
         {
-            if (character.player.GetComponent<Player1Behaviour>().currentState == Player1Behaviour.Player1State.Attacking)
+            if (character.player.GetComponentInChildren<Animator>().GetBool("attack") || character.player.GetComponentInChildren<Animator>().GetBool("kick"))
             {
                 character.ChangeState(character.blockState);
             }
@@ -26,13 +26,22 @@ public class CharacterMoveState : ACharacterAIState
         }
         else
         {
-            //Aquí se mueve el personaje
             Vector3 direction = new Vector2(-1, 0);
-            if (character.player.GetComponent<Player1Behaviour>().currentState == Player1Behaviour.Player1State.Walking)
+            if (character.player.GetComponentInChildren<Animator>().GetBool("attack") || character.player.GetComponentInChildren<Animator>().GetBool("kick"))
             {
-                direction = character.player.GetComponent<Player1Behaviour>().moveInput;
+                character.ChangeState(character.idleState);
             }
-            character.transform.Translate(direction.x * (direction.x < 0 ? character.moveSpeed : character.moveSpeed / 1.5f) * Time.deltaTime, 0f, 0f);
+            else
+            {
+                if (character.player.GetComponent<Player1Behaviour>().currentState == Player1Behaviour.Player1State.Walking)
+                {
+                    if (!character.player.GetComponent<Player1Behaviour>().moveInput.Equals(Vector2.zero))
+                    {
+                        direction = character.player.GetComponent<Player1Behaviour>().moveInput;
+                    }
+                }
+                character.transform.Translate(direction.x * (direction.x < 0 ? character.moveSpeed : character.moveSpeed / 1.5f) * Time.deltaTime, 0f, 0f);
+            }
         }
     }
 }
