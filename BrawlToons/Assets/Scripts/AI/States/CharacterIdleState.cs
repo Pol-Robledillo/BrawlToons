@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 public class CharacterIdleState : ACharacterAIState
 {
@@ -12,7 +13,7 @@ public class CharacterIdleState : ACharacterAIState
 
     public override void UpdateState(CharacterAI character)
     {
-        if (character.player.GetComponent<Player1Behaviour>().currentState != Player1Behaviour.Player1State.Attacking)
+        if (!(character.player.GetComponentInChildren<Animator>().GetBool("attack") || character.player.GetComponentInChildren<Animator>().GetBool("kick")))
         {
             character.ChangeState(character.moveState);
         }

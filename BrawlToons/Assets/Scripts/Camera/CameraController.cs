@@ -29,10 +29,10 @@ public class CameraController : MonoBehaviour
          standardDistanceUnit = (distanceInitialBetweenCameraAndMidPoint / distanceBetweenPlayers);
          if (cameraMaxDistanceAllowed <= cameraMinDistanceAllowed) { cameraMaxDistanceAllowed = (cameraMinDistanceAllowed + 1); }
          if (playersMaxDistanceAllowed <= distanceInitialBetweenPlayers) { playersMaxDistanceAllowed = distanceInitialBetweenPlayers; }
-         Debug.Log("Distance between players: " + distanceBetweenPlayers);
-        Debug.Log("Distance between players initial: " + distanceInitialBetweenPlayers);
-        Debug.Log("Distance between camera and mid point initial: " + distanceInitialBetweenCameraAndMidPoint);
-        Debug.Log("Standard distance unit: " + standardDistanceUnit);
+        // Debug.Log("Distance between players: " + distanceBetweenPlayers);
+        //Debug.Log("Distance between players initial: " + distanceInitialBetweenPlayers);
+        //Debug.Log("Distance between camera and mid point initial: " + distanceInitialBetweenCameraAndMidPoint);
+        //Debug.Log("Standard distance unit: " + standardDistanceUnit);
     }
      public void IntermediatePosition()
      {
