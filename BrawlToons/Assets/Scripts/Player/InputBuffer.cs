@@ -18,13 +18,23 @@ public class InputBuffer : MonoBehaviour
     }
 
     private Queue<InputEntry> inputQueue = new Queue<InputEntry>();
-    public float bufferTime = 0.2f;
+    public float bufferTime = 1f;
+    private Animator animator;
 
+    private void Awake()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
     private void Update()
     {
         while (inputQueue.Count > 0 && Time.time - inputQueue.Peek().time > bufferTime)
         {
             inputQueue.Dequeue();
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            ExecuteBufferedInput();
         }
     }
 
@@ -36,16 +46,25 @@ public class InputBuffer : MonoBehaviour
         }
     }
 
-    public bool ConsumeInput(string inputName)
+    public void ExecuteBufferedInput()
     {
-        foreach (InputEntry input in inputQueue)
+        if (inputQueue.Count == 0)
         {
-            if (input.inputName == inputName)
-            {
-                inputQueue = new Queue<InputEntry>(inputQueue.Where(i => i.inputName != inputName));
-                return true;
-            }
+            return;
         }
-        return false;
+
+        string inputName = inputQueue.Dequeue().inputName;
+
+        Debug.Log("Executing buffered input: " + inputName);
+
+        if (inputName == "Punch")
+        {
+            animator.SetTrigger("attack");
+        }
+        else if (inputName == "Kick")
+        {
+            animator.SetTrigger("kick");
+        }
     }
+
 }

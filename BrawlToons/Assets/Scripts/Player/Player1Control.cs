@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
 {
+    private InputBuffer inputBuffer;
     private Player1Behaviour player1Behaviour;
     Player player;
     private Animator animator;
@@ -26,6 +27,7 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
         player = new Player();
         player.Player1.SetCallbacks(this);
         animator = GetComponentInChildren<Animator>();
+        inputBuffer = GetComponent<InputBuffer>();
     }
 
     void Start()
@@ -64,12 +66,12 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
 
     public void OnPunch(InputAction.CallbackContext context)
     {
-        animator.SetBool("attack", true);
+        inputBuffer.BufferInput(context);
     }
 
     public void OnKick(InputAction.CallbackContext context)
     {
-        animator.SetBool("kick", true);
+        inputBuffer.BufferInput(context);
     }
 
     public void OnSpecial(InputAction.CallbackContext context)

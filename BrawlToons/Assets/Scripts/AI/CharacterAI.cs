@@ -38,7 +38,7 @@ public class CharacterAI : MonoBehaviour
     }
     private void Update()
     {
-        CheckState();
+        //CheckState();
         if (CheckIfAlive())
         {
             currentState.UpdateState(this);
@@ -48,22 +48,22 @@ public class CharacterAI : MonoBehaviour
     {
         switch (currentState)
         {
-            case CharacterIdleState idleState:
+            case CharacterIdleState:
                 Debug.Log("Idle");
                 break;
-            case CharacterMoveState moveState:
+            case CharacterMoveState:
                 Debug.Log("Move");
                 break;
-            case CharacterAttackState attackState:
+            case CharacterAttackState:
                 Debug.Log("Attack");
                 break;
-            case CharacterBlockState blockState:
+            case CharacterBlockState:
                 Debug.Log("Block");
                 break;
-            case CharacterDefeatState defeatState:
+            case CharacterDefeatState:
                 Debug.Log("Defeat");
                 break;
-            case CharacterHurtState hurtState:
+            case CharacterHurtState:
                 Debug.Log("Hurt");
                 break;
         }
