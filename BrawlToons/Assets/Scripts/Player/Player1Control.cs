@@ -58,8 +58,16 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
 
     public void OnBlock(InputAction.CallbackContext context)
     {
-        reduceDamage = true;
-        animator.SetBool("block", true);
+        if (context.performed)
+        {
+            reduceDamage = true;
+            animator.SetBool("block", true);
+        }
+        if (context.canceled)
+        {
+            reduceDamage = false;
+            animator.SetBool("block", false);
+        }
     }
 
     public void OnPunch(InputAction.CallbackContext context)
