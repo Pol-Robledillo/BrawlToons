@@ -65,6 +65,8 @@ public class InputBuffer : MonoBehaviour
         {
             animator.SetTrigger("kick");
         }
+
+        inputQueue.Clear();
     }
 
 }
