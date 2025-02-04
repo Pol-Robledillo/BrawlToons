@@ -9,6 +9,8 @@ public class Player2Control : MonoBehaviour, Player.IPlayer2Actions
     private Player2Behaviour player2Behaviour;
     Player player;
     private Animator animator;
+
+
     public static Player2Control Instance { get; private set; } // La instancia estática
     public bool reduceDamageP2 = false;
 
@@ -37,6 +39,7 @@ public class Player2Control : MonoBehaviour, Player.IPlayer2Actions
     {
         player.Enable();
         
+        
     }
     private void OnDisable()
     {
@@ -58,8 +61,16 @@ public class Player2Control : MonoBehaviour, Player.IPlayer2Actions
 
     public void OnBlock(InputAction.CallbackContext context)
     {
-        reduceDamageP2 = true;
-        animator.SetBool("block", true);
+        if(context.performed)
+        {
+            reduceDamageP2 = true;
+            animator.SetBool("block", true);
+        }
+        if (context.canceled)
+        {
+            reduceDamageP2 = false;
+            animator.SetBool("block", false);
+        }
     }
 
     public void OnPunch(InputAction.CallbackContext context)

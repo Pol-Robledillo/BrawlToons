@@ -11,7 +11,6 @@ public class DamageSource : MonoBehaviour
         {
             if (damageable != null)
             {
-                //Debug.Log("¡Colisión con Player2! Se le ha aplicado daño.");
                 damageable.TakeDamage(damage);
             }
         }

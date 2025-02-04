@@ -7,6 +7,7 @@ public class Character : MonoBehaviour, IDamageable
 
     public int maxHealth = 100;
     public int health = 100;
+    public int stamina = 0;
 
     void Start()
     {
