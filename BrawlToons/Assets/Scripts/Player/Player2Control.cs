@@ -14,6 +14,9 @@ public class Player2Control : MonoBehaviour, Player.IPlayer2Actions
     public static Player2Control Instance { get; private set; } // La instancia estática
     public bool reduceDamageP2 = false;
 
+    public int stamina;
+    
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -85,6 +88,10 @@ public class Player2Control : MonoBehaviour, Player.IPlayer2Actions
 
     public void OnSpecial(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        if (stamina >= 100)
+        {
+            stamina = 0;
+        }
+        else return;
     }
 }

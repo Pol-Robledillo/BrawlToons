@@ -12,6 +12,7 @@ public class Character : MonoBehaviour, IDamageable
     void Start()
     {
         health = maxHealth;
+        Player1Behaviour player1 = GetComponent<Player1Behaviour>();
     }
  
     public void Initialize(int initialHealth)
@@ -26,6 +27,7 @@ public class Character : MonoBehaviour, IDamageable
         {
             Player1Behaviour player1Behaviour = GetComponent<Player1Behaviour>();
             player1Behaviour.currentState = Player1Behaviour.Player1State.Hurt;
+            Player2Control.Instance.stamina += 10;
 
             if (Player1Control.Instance.reduceDamage)
             {
@@ -38,7 +40,7 @@ public class Character : MonoBehaviour, IDamageable
             {
                 Player2Behaviour player2Behaviour = GetComponent<Player2Behaviour>();
                 player2Behaviour.currentState = Player2Behaviour.Player2State.Hurt;
-
+                Player1Control.Instance.stamina += 10;
                 if (Player2Control.Instance.reduceDamageP2)
                 {
                     damage = Mathf.RoundToInt(damage - (damage * 0.8f));

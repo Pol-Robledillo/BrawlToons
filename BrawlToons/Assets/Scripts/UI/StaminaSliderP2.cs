@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StaminaSlider: MonoBehaviour
+public class StaminaSliderP2 : MonoBehaviour
 {
 
     public Slider staminaSlider; 
@@ -12,14 +12,14 @@ public class StaminaSlider: MonoBehaviour
     void Start()
     {
         staminaSlider.maxValue = maxStamina;
-        staminaSlider.value = Player1Control.Instance.stamina; 
+        staminaSlider.value = Player2Control.Instance.stamina; 
     }
 
     void Update()
     {
-        if (staminaSlider.value != Player1Control.Instance.stamina)
+        if (staminaSlider.value != Player2Control.Instance.stamina)
         {
-            staminaSlider.value = Player1Control.Instance.stamina;
+            staminaSlider.value = Player2Control.Instance.stamina;
         }
     }
 }

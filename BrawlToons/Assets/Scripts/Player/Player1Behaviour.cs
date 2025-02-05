@@ -23,6 +23,7 @@ public class Player1Behaviour : MonoBehaviour
 
     private Animator animator;
 
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();

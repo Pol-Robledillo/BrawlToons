@@ -398,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reduceDamageP2: 0
+  stamina: 0
 --- !u!114 &172846094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,9 +501,9 @@ GameObject:
   m_Component:
   - component: {fileID: 331124093}
   - component: {fileID: 331124095}
-  - component: {fileID: 331124094}
+  - component: {fileID: 331124096}
   m_Layer: 5
-  m_Name: StaminaP1 (1)
+  m_Name: StaminaP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,21 +531,6 @@ RectTransform:
   m_AnchoredPosition: {x: 708, y: 397}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &331124094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331124092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 285b4cf0507e116428006a756bf34a97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1579751660}
-  staminaSlider: {fileID: 331124095}
-  maxStamina: 100
 --- !u!114 &331124095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,10 +578,24 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.881
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &331124096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331124092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08d8e33486911946b8b3017ebe6e072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaSlider: {fileID: 331124095}
+  maxStamina: 100
 --- !u!4 &339484150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3071501173714076883, guid: c06aa0ab30720304b8e1941b743df0bb, type: 3}
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.881
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -704,7 +704,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285b4cf0507e116428006a756bf34a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1579751660}
   staminaSlider: {fileID: 354817775}
   maxStamina: 100
 --- !u!1 &393502362
@@ -2135,7 +2134,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.881
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2210,7 +2209,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.881
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2508,6 +2507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reduceDamage: 0
+  stamina: 0
 --- !u!114 &1579751659
 MonoBehaviour:
   m_ObjectHideFlags: 0
