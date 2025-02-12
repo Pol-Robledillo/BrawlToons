@@ -5,14 +5,17 @@ using UnityEngine;
 public class DamageSource : MonoBehaviour
 {
     [SerializeField] private int damage;
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
             if (damageable != null)
             {
-                damageable.TakeDamage(damage);
+                // Obtén la posición de la colisión.
+                Vector3 hitPoint = other.ClosestPointOnBounds(transform.position);
+                
+                damageable.TakeDamage(damage, hitPoint);  // Pasar la posición del impacto a TakeDamage
             }
         }
     }

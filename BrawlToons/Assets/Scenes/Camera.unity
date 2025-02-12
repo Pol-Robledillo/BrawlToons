@@ -433,7 +433,7 @@ MonoBehaviour:
   stamina: 0
   blockParticlesPrefab: {fileID: 8460667080445658518, guid: a3e2c3406e02f2c4ba86cfb1604277bd, type: 3}
   particleOffset: {x: 0, y: 1, z: 0}
-  rotationOffset: {x: 0, y: 90, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &245881839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,8 +2544,8 @@ MonoBehaviour:
   health: 100
   stamina: 0
   blockParticlesPrefab: {fileID: 8460667080445658518, guid: a3e2c3406e02f2c4ba86cfb1604277bd, type: 3}
-  particleOffset: {x: 0, y: 1, z: 0}
-  rotationOffset: {x: 0, y: -40, z: 0}
+  particleOffset: {x: 0, y: 0, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1579751661
 MonoBehaviour:
   m_ObjectHideFlags: 0
