@@ -33,11 +33,11 @@ public class CharacterMoveState : ACharacterAIState
             }
             else
             {
-                if (character.player.GetComponent<Player1Behaviour>().currentState == Player1Behaviour.Player1State.Walking)
+                if (character.player.GetComponent<PlayerStateMachine>().currentState == PlayerStateMachine.States.walking)
                 {
-                    if (!character.player.GetComponent<Player1Behaviour>().moveInput.Equals(Vector2.zero))
+                    if (!character.player.GetComponent<PlayerStateMachine>().moveInput.Equals(Vector2.zero))
                     {
-                        direction = character.player.GetComponent<Player1Behaviour>().moveInput;
+                        direction = character.player.GetComponent<PlayerStateMachine>().moveInput;
                     }
                 }
                 character.transform.Translate(direction.x * (direction.x < 0 ? character.moveSpeed : character.moveSpeed / 1.5f) * Time.deltaTime, 0f, 0f);

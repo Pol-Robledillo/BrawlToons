@@ -20,10 +20,12 @@ public class InputBuffer : MonoBehaviour
     private Queue<InputEntry> inputQueue = new Queue<InputEntry>();
     public float bufferTime = 1f;
     private Animator animator;
+    private PlayerStateMachine playerStateMachine;
 
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        playerStateMachine = GetComponent<PlayerStateMachine>();
     }
     private void Update()
     {
@@ -31,7 +33,6 @@ public class InputBuffer : MonoBehaviour
         {
             inputQueue.Dequeue();
         }
-
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             ExecuteBufferedInput();
@@ -59,11 +60,13 @@ public class InputBuffer : MonoBehaviour
 
         if (inputName == "Punch")
         {
-            animator.SetTrigger("attack");
+            playerStateMachine.currentState = PlayerStateMachine.States.attacking;
+            playerStateMachine.PerformPunch();
         }
         else if (inputName == "Kick")
         {
-            animator.SetTrigger("kick");
+            playerStateMachine.currentState = PlayerStateMachine.States.attacking;
+            playerStateMachine.PerformKick();
         }
 
         inputQueue.Clear();

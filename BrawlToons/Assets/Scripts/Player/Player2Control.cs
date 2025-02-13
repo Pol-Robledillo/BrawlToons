@@ -6,92 +6,77 @@ using UnityEngine.InputSystem;
 
 public class Player2Control : MonoBehaviour, Player.IPlayer2Actions
 {
-    private Player2Behaviour player2Behaviour;
+    public static Player2Control instance;
+    private InputBuffer inputBuffer;
+    public PlayerStateMachine playerStateMachine;
     Player player;
     private Animator animator;
-
-
-    public static Player2Control Instance { get; private set; } // La instancia estática
-    public bool reduceDamageP2 = false;
-
-    public int stamina;
-    
-
+    public bool reduceDamage = false;
     void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        instance = this;
         player = new Player();
         player.Player2.SetCallbacks(this);
         animator = GetComponentInChildren<Animator>();
+        inputBuffer = GetComponent<InputBuffer>();
+        playerStateMachine = GetComponent<PlayerStateMachine>();
     }
-    void Start()
-    {
-        player2Behaviour = GetComponent<Player2Behaviour>();
-        
-    }
-
     private void OnEnable()
     {
         player.Enable();
-        
-        
     }
     private void OnDisable()
     {
         player.Disable();
-       
     }
-
     public void OnWalk(InputAction.CallbackContext context)
     {
-        Vector2 input = context.ReadValue<Vector2>();
-        player2Behaviour.moveInput = input;
-        player2Behaviour.currentState = Player2Behaviour.Player2State.Walking;
+        if (context.performed)
+        {
+            playerStateMachine.moveInput = context.ReadValue<Vector2>();
+        }
+        else if (context.canceled)
+        {
+            playerStateMachine.moveInput = Vector2.zero;
+        }
+        if (playerStateMachine.currentState == PlayerStateMachine.States.idle ||
+            playerStateMachine.currentState == PlayerStateMachine.States.walking)
+        {
+            playerStateMachine.currentState = context.ReadValue<Vector2>() == Vector2.zero ? PlayerStateMachine.States.idle : PlayerStateMachine.States.walking;
+        }
     }
-
     public void OnCrouch(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();
     }
-
     public void OnBlock(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (context.performed)
         {
-            reduceDamageP2 = true;
+            playerStateMachine.currentState = PlayerStateMachine.States.blocking;
+            reduceDamage = true;
             animator.SetBool("block", true);
         }
         if (context.canceled)
         {
-            reduceDamageP2 = false;
+            playerStateMachine.currentState = PlayerStateMachine.States.walking;
             animator.SetBool("block", false);
+            reduceDamage = false;
         }
     }
-
     public void OnPunch(InputAction.CallbackContext context)
     {
-        animator.SetBool("attack", true);
+        inputBuffer.BufferInput(context);
     }
-
     public void OnKick(InputAction.CallbackContext context)
     {
-        animator.SetBool("kick", true);
+        inputBuffer.BufferInput(context);
     }
-
     public void OnSpecial(InputAction.CallbackContext context)
     {
-        if (stamina >= 100)
+        if (playerStateMachine.stamina >= 100)
         {
-            stamina = 0;
+            inputBuffer.BufferInput(context);
         }
-        else return;
     }
 }

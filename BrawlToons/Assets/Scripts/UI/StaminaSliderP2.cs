@@ -12,14 +12,14 @@ public class StaminaSliderP2 : MonoBehaviour
     void Start()
     {
         staminaSlider.maxValue = maxStamina;
-        staminaSlider.value = Player2Control.Instance.stamina; 
+        staminaSlider.value = Player2Control.instance.playerStateMachine.stamina; 
     }
 
     void Update()
     {
-        if (staminaSlider.value != Player2Control.Instance.stamina)
+        if (staminaSlider.value != Player2Control.instance.playerStateMachine.stamina)
         {
-            staminaSlider.value = Player2Control.Instance.stamina;
+            staminaSlider.value = Player2Control.instance.playerStateMachine.stamina;
         }
     }
 }

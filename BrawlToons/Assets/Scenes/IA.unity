@@ -406,7 +406,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172846088}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26c4c74d344e9d24f8b2ca58b4815d6e, type: 3}
   m_Name: 
@@ -1850,10 +1850,10 @@ GameObject:
   - component: {fileID: 1579751657}
   - component: {fileID: 1579751656}
   - component: {fileID: 1579751655}
-  - component: {fileID: 1579751659}
   - component: {fileID: 1579751658}
   - component: {fileID: 1579751661}
   - component: {fileID: 1579751660}
+  - component: {fileID: 1579751662}
   m_Layer: 6
   m_Name: TestingP1
   m_TagString: Player
@@ -1939,24 +1939,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2f1221372b12a48b321879be366ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStateMachine: {fileID: 0}
   reduceDamage: 0
---- !u!114 &1579751659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1579751653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3be095673992ef448b6bf776690646d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  moveInput: {x: 0, y: 0}
-  currentState: 0
-  knockbackForce: 0.3
-  knockbackDuration: 0.1
 --- !u!114 &1579751660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1984,6 +1968,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bufferTime: 0.2
+--- !u!114 &1579751662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579751653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407b5a635dd4c5b4ca18eee95784b902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  moveSpeed: 5
+  knockbackForce: 0.3
+  knockbackDuration: 0.1
+  knockbackDirection: {x: 0, y: 0}
+  moveInput: {x: 0, y: 0}
+  reduceDamage: 0
+  stamina: 0
 --- !u!4 &1627604377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3626449032674212017, guid: df6e0d5705c11244c8b08313c0fe392b, type: 3}

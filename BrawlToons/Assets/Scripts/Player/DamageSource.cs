@@ -15,7 +15,7 @@ public class DamageSource : MonoBehaviour
                 // Obtén la posición de la colisión.
                 Vector3 hitPoint = other.ClosestPointOnBounds(transform.position);
                 
-                damageable.TakeDamage(damage, hitPoint);  // Pasar la posición del impacto a TakeDamage
+                damageable.TakeDamage(damage);  // Pasar la posición del impacto a TakeDamage
             }
         }
     }

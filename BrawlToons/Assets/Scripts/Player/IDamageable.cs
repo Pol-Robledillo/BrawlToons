@@ -4,5 +4,5 @@ using UnityEngine;
 
 interface IDamageable
 {
-    void TakeDamage(int damage, Vector3 pos);   
+    void TakeDamage(int damage);
 }

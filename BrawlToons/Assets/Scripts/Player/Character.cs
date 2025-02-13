@@ -4,21 +4,13 @@ using UnityEngine;
 
 public class Character : MonoBehaviour, IDamageable
 {
+
     public int maxHealth = 100;
     public int health = 100;
-    public int stamina = 0;
-    [SerializeField] private ParticleSystem blockParticlesPrefab; // Prefab de las partículas
-
-    // Ajuste de la posición de las partículas (por ejemplo, un poco por encima del Character)
-    [SerializeField] private Vector3 particleOffset = new Vector3(0f, 1f, 0f); // Ajuste de la posición de las partículas
-
-    // Ajuste de la rotación de las partículas
-    [SerializeField] private Vector3 rotationOffset = new Vector3(0f, 0f, 0f); // Ajuste de la rotación (en grados)
 
     void Start()
     {
         health = maxHealth;
-        Player1Behaviour player1 = GetComponent<Player1Behaviour>();
     }
 
     public void Initialize(int initialHealth)
@@ -26,62 +18,48 @@ public class Character : MonoBehaviour, IDamageable
         maxHealth = initialHealth;
         health = maxHealth;
     }
-
-    public void TakeDamage(int damage, Vector3 hitPoint)
+    public void TakeDamage(int damage)
     {
         CameraShaker.Instance.ShakeOnce(2f, 3f, 0.1f, 0.5f);
-
         try
         {
-            Player1Behaviour player1Behaviour = GetComponent<Player1Behaviour>();
-            player1Behaviour.currentState = Player1Behaviour.Player1State.Hurt;
-            Player2Control.Instance.stamina += 10;
-
-            if (Player1Control.Instance.reduceDamage)
-            {
-                damage = Mathf.RoundToInt(damage - (damage * 0.8f));
-
-                // Instanciar las partículas en el punto de la colisión con el desplazamiento de posición y rotación aplicados
-                Instantiate(blockParticlesPrefab, hitPoint + particleOffset, transform.rotation * Quaternion.Euler(rotationOffset));
-                Debug.Log("Partículas de bloqueo activadas");
-            }
-        }
-        catch
-        {
+            PlayerStateMachine playerStateMachine = GetComponent<PlayerStateMachine>();
             try
             {
-                Player2Behaviour player2Behaviour = GetComponent<Player2Behaviour>();
-                player2Behaviour.currentState = Player2Behaviour.Player2State.Hurt;
-                Player1Control.Instance.stamina += 10;
-
-                if (Player2Control.Instance.reduceDamageP2)
+                Player1Control player1Controller = GetComponent<Player1Control>();
+                if (player1Controller.reduceDamage)
                 {
                     damage = Mathf.RoundToInt(damage - (damage * 0.8f));
-
-                    // Instanciar las partículas en el punto de la colisión
-                    Instantiate(blockParticlesPrefab, hitPoint + particleOffset, transform.rotation * Quaternion.Euler(rotationOffset));
-                    Debug.Log("Partículas de bloqueo activadas");
                 }
+                playerStateMachine.knockbackDirection = new Vector2(-1, 0);
             }
             catch
             {
-                CharacterAI characterAI = GetComponent<CharacterAI>();
-                characterAI.currentState = characterAI.hurtState;
-
-                if (characterAI.isBlocking)
+                Player2Control player2Controller = GetComponent<Player2Control>();
+                if (player2Controller.reduceDamage)
                 {
                     damage = Mathf.RoundToInt(damage - (damage * 0.8f));
                 }
+                playerStateMachine.knockbackDirection = new Vector2(1, 0);
+            }
+            playerStateMachine.currentState = PlayerStateMachine.States.hurt;
+        }
+        catch
+        {
+            CharacterAI characterAI = GetComponent<CharacterAI>();
+            characterAI.currentState = characterAI.hurtState;
+
+            if (characterAI.isBlocking)
+            {
+                damage = Mathf.RoundToInt(damage - (damage * 0.8f));
             }
         }
-
         health -= damage;
         if (health <= 0)
         {
             //Destroy(gameObject);
         }
     }
-
 }
 /*using EZCameraShake;
 using System;
