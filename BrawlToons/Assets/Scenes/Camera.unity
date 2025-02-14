@@ -2641,24 +2641,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bufferTime: 1
-<<<<<<< HEAD
 --- !u!114 &1579751662
 MonoBehaviour:
-=======
---- !u!198 &1582130246 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7226583673155636403, guid: a2ab56839e1c9504ea9d141e95d0b16b, type: 3}
-  m_PrefabInstance: {fileID: 77165341}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1627558096
-Animator:
-  serializedVersion: 5
->>>>>>> 489dc71510dad08cf0212d853785fb0b07e88d79
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 1579751653}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -2673,22 +2661,6 @@ Animator:
   moveInput: {x: 0, y: 0}
   reduceDamage: 0
   stamina: 0
-=======
-  m_GameObject: {fileID: 919132147848151238}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 32fdf802a1246d64f8e56986d5649bb1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
->>>>>>> 489dc71510dad08cf0212d853785fb0b07e88d79
 --- !u!4 &1627604377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3626449032674212017, guid: df6e0d5705c11244c8b08313c0fe392b, type: 3}
