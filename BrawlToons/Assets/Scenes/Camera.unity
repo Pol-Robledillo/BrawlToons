@@ -367,6 +367,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7226583673155636402, guid: a2ab56839e1c9504ea9d141e95d0b16b, type: 3}
   m_PrefabInstance: {fileID: 77165341}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &77165343 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7226583673155636403, guid: a2ab56839e1c9504ea9d141e95d0b16b, type: 3}
+  m_PrefabInstance: {fileID: 77165341}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &82255354
 Animator:
   serializedVersion: 5
@@ -522,7 +527,6 @@ MonoBehaviour:
   knockbackDuration: 0.1
   knockbackDirection: {x: 0, y: 0}
   moveInput: {x: 0, y: 0}
-  reduceDamage: 0
   stamina: 0
 --- !u!114 &172846097
 MonoBehaviour:
@@ -2659,7 +2663,6 @@ MonoBehaviour:
   knockbackDuration: 0.1
   knockbackDirection: {x: 0, y: 0}
   moveInput: {x: 0, y: 0}
-  reduceDamage: 0
   stamina: 0
 --- !u!4 &1627604377 stripped
 Transform:
@@ -11891,7 +11894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d75e67eaaf4294cb5832c1bd6029b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  punchLeft: {fileID: 1582130246}
+  punchLeft: {fileID: 77165343}
 --- !u!1 &8670540288713248952
 GameObject:
   m_ObjectHideFlags: 0
