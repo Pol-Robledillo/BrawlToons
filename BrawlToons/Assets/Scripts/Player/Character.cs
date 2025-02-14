@@ -26,6 +26,7 @@ public class Character : MonoBehaviour, IDamageable
             PlayerStateMachine playerStateMachine = GetComponent<PlayerStateMachine>();
             try
             {
+                Debug.Log("AAAAAAAAAAAAAAA");
                 Player1Control player1Controller = GetComponent<Player1Control>();
                 if (player1Controller.reduceDamage)
                 {
