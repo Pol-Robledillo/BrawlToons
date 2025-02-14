@@ -20,7 +20,6 @@ public class PlayerStateMachine : MonoBehaviour
     public float knockbackDuration = 0.1f;
     public Vector2 knockbackDirection;
     public Vector2 moveInput;
-    public bool reduceDamage = false;
     public int stamina;
 
     private Animator animator;

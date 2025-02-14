@@ -26,7 +26,7 @@ public class CharacterAttackState : ACharacterAIState
     }
     private void ExecuteAttack(CharacterAI character)
     {
-        if (new Random().Next(0, 2) == 0)
+        if (new Random().Next(0, 1) == 0)
         {
             character.anim.SetBool("attack", true);
         }

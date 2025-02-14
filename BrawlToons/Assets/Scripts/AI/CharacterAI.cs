@@ -38,6 +38,17 @@ public class CharacterAI : MonoBehaviour
     }
     private void Update()
     {
+        if (playerInRange)
+        {
+            if (player.GetComponent<PlayerStateMachine>().currentState == PlayerStateMachine.States.attacking)
+            {
+                ChangeState(blockState);
+            }
+            else
+            {
+                ChangeState(attackState);
+            }
+        }
         //CheckState();
         if (CheckIfAlive())
         {

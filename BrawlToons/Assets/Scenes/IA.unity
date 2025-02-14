@@ -406,7 +406,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172846088}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26c4c74d344e9d24f8b2ca58b4815d6e, type: 3}
   m_Name: 
@@ -1986,7 +1986,6 @@ MonoBehaviour:
   knockbackDuration: 0.1
   knockbackDirection: {x: 0, y: 0}
   moveInput: {x: 0, y: 0}
-  reduceDamage: 0
   stamina: 0
 --- !u!4 &1627604377 stripped
 Transform:

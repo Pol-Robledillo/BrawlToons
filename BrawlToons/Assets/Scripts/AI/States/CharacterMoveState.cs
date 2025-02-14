@@ -13,35 +13,21 @@ public class CharacterMoveState : ACharacterAIState
 
     public override void UpdateState(CharacterAI character)
     {
-        if (character.playerInRange)
+        Vector3 direction = new Vector2(-1, 0);
+        if (character.player.GetComponent<PlayerStateMachine>().currentState == PlayerStateMachine.States.attacking)
         {
-            if (character.player.GetComponentInChildren<Animator>().GetBool("attack") || character.player.GetComponentInChildren<Animator>().GetBool("kick"))
-            {
-                character.ChangeState(character.blockState);
-            }
-            else
-            {
-                character.ChangeState(character.attackState);
-            }
+            character.ChangeState(character.idleState);
         }
         else
         {
-            Vector3 direction = new Vector2(-1, 0);
-            if (character.player.GetComponentInChildren<Animator>().GetBool("attack") || character.player.GetComponentInChildren<Animator>().GetBool("kick"))
+            if (character.player.GetComponent<PlayerStateMachine>().currentState == PlayerStateMachine.States.walking)
             {
-                character.ChangeState(character.idleState);
-            }
-            else
-            {
-                if (character.player.GetComponent<PlayerStateMachine>().currentState == PlayerStateMachine.States.walking)
+                if (!character.player.GetComponent<PlayerStateMachine>().moveInput.Equals(Vector2.zero))
                 {
-                    if (!character.player.GetComponent<PlayerStateMachine>().moveInput.Equals(Vector2.zero))
-                    {
-                        direction = character.player.GetComponent<PlayerStateMachine>().moveInput;
-                    }
+                    direction = character.player.GetComponent<PlayerStateMachine>().moveInput;
                 }
-                character.transform.Translate(direction.x * (direction.x < 0 ? character.moveSpeed : character.moveSpeed / 1.5f) * Time.deltaTime, 0f, 0f);
             }
+            character.transform.Translate(direction.x * (direction.x < 0 ? character.moveSpeed : character.moveSpeed / 1.5f) * Time.deltaTime, 0f, 0f);
         }
     }
 }

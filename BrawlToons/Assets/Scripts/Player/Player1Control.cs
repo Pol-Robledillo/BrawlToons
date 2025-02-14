@@ -51,17 +51,20 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
     }
     public void OnBlock(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (playerStateMachine.currentState != PlayerStateMachine.States.attacking)
         {
-            playerStateMachine.currentState = PlayerStateMachine.States.blocking;
-            reduceDamage = true;
-            animator.SetBool("block", true);
-        }
-        if (context.canceled)
-        {
-            playerStateMachine.currentState = PlayerStateMachine.States.walking;
-            animator.SetBool("block", false);
-            reduceDamage = false;
+            if (context.performed)
+            {
+                playerStateMachine.currentState = PlayerStateMachine.States.blocking;
+                reduceDamage = true;
+                animator.SetBool("block", true);
+            }
+            if (context.canceled)
+            {
+                playerStateMachine.currentState = PlayerStateMachine.States.walking;
+                animator.SetBool("block", false);
+                reduceDamage = false;
+            }
         }
     }
     public void OnPunch(InputAction.CallbackContext context)

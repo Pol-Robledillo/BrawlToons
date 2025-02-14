@@ -13,7 +13,7 @@ public class CharacterIdleState : ACharacterAIState
 
     public override void UpdateState(CharacterAI character)
     {
-        if (!(character.player.GetComponentInChildren<Animator>().GetBool("attack") || character.player.GetComponentInChildren<Animator>().GetBool("kick")))
+        if (character.player.GetComponent<PlayerStateMachine>().currentState != PlayerStateMachine.States.attacking)
         {
             character.ChangeState(character.moveState);
         }
