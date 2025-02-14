@@ -6,7 +6,7 @@ public class CharacterHurtState : ACharacterAIState
 {
     public override void EnterState(CharacterAI character)
     {
-        //character.anim.SetTrigger("Hurt");
+        character.anim.SetBool("Hurt", true);
     }
 
     public override void ExitState(CharacterAI character) { }
@@ -15,6 +15,7 @@ public class CharacterHurtState : ACharacterAIState
     {
         if (character.CheckIfAlive())
         {
+            character.anim.SetBool("Hurt", false);
             character.ChangeState(character.idleState);
         }
     }

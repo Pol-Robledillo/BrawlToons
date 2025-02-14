@@ -16,7 +16,7 @@ public class CharacterAI : MonoBehaviour
     public SphereCollider attackRange;
     public ACharacterAIState currentState;
 
-    public float moveSpeed = 5f;
+    public float moveSpeed = 3f;
     public bool playerInRange = false, isBlocking = false;
     public int health = 100;
 
@@ -38,20 +38,20 @@ public class CharacterAI : MonoBehaviour
     }
     private void Update()
     {
-        if (playerInRange)
-        {
-            if (player.GetComponent<PlayerStateMachine>().currentState == PlayerStateMachine.States.attacking)
-            {
-                ChangeState(blockState);
-            }
-            else
-            {
-                ChangeState(attackState);
-            }
-        }
         //CheckState();
         if (CheckIfAlive())
         {
+            if (playerInRange)
+            {
+                if (player.GetComponent<PlayerStateMachine>().currentState == PlayerStateMachine.States.attacking)
+                {
+                    ChangeState(blockState);
+                }
+                else
+                {
+                    ChangeState(attackState);
+                }
+            }
             currentState.UpdateState(this);
         }
     }

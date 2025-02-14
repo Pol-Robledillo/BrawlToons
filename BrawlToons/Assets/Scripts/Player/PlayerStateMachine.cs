@@ -78,12 +78,19 @@ public class PlayerStateMachine : MonoBehaviour
         float timer = 0f;
         while (timer < knockbackDuration)
         {
-            transform.Translate(knockbackDirection * knockbackForce * Time.deltaTime);
+            transform.Translate(knockbackDirection * (Player1Control.instance.reduceDamage ? knockbackForce / 2 : knockbackForce) * Time.deltaTime);
             timer += Time.deltaTime;
             yield return null;
         }
         animator.SetBool("hurt", false);
-        currentState = States.idle;
+        if (moveInput != Vector2.zero)
+        {
+            currentState = States.walking;
+        }
+        else
+        {
+            currentState = States.idle;
+        }
     }
     public void PerformPunch()
     {

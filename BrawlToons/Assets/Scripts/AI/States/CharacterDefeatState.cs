@@ -8,7 +8,7 @@ public class CharacterDefeatState : ACharacterAIState
 {
     public override void EnterState(CharacterAI character)
     {
-        character.anim.SetBool("isDefeated", true);
+        //character.anim.SetBool("isDefeated", true);
     }
 
     public override void ExitState(CharacterAI character)

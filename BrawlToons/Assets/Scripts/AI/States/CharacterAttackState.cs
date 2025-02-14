@@ -21,12 +21,15 @@ public class CharacterAttackState : ACharacterAIState
         }
         else
         {
-            character.ChangeState(character.idleState);
+            if (!(character.anim.GetBool("attack") || character.anim.GetBool("kick")))
+            {
+                character.ChangeState(character.idleState);
+            }
         }
     }
     private void ExecuteAttack(CharacterAI character)
     {
-        if (new Random().Next(0, 1) == 0)
+        if (new Random().Next(0, 2) == 0)
         {
             character.anim.SetBool("attack", true);
         }
