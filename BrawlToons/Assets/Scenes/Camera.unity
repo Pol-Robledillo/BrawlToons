@@ -4188,7 +4188,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450651784501884}
-  - component: {fileID: 1627558096}
   m_Layer: 0
   m_Name: MairaCharacterRig
   m_TagString: Untagged
