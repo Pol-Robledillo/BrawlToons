@@ -30,7 +30,6 @@ public class CharacterAI : MonoBehaviour
         hurtState = new CharacterHurtState();
 
         player = GameObject.FindGameObjectWithTag("Player");
-        anim = GetComponentInChildren<Animator>();
         attackRange = GetComponent<SphereCollider>();
         currentState = idleState;
 

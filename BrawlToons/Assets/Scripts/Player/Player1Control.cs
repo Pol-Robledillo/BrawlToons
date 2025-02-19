@@ -17,7 +17,6 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
         instance = this;
         player = new Player();
         player.Player1.SetCallbacks(this);
-        animator = GetComponentInChildren<Animator>();
         inputBuffer = GetComponent<InputBuffer>();
         playerStateMachine = GetComponent<PlayerStateMachine>();
     }

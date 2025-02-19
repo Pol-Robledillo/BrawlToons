@@ -26,7 +26,6 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
         knockbackDirection = GetComponent<Transform>().rotation.y < 0 ? new Vector2(-1, 0) : new Vector2(1, 0);
     }
 
