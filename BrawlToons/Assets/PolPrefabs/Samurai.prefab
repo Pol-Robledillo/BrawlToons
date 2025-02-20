@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 5129459916372755546}
   - component: {fileID: 7387881213218392664}
   m_Layer: 6
-  m_Name: FightingIdle
+  m_Name: Samurai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

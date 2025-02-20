@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CharacterSO : ScriptableObject
 {
+    public int characterID;
     public string characterName;
-    public Mesh mesh;
-    public Material material;
     public GameObject characterPrefab;
 }

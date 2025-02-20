@@ -8,20 +8,30 @@ using UnityEngine.UI;
 public class CharacterSelectionBehaviours : MonoBehaviour
 {
     private bool characterOneSelected = false, characterTwoSelected = false;
-    public GameObject playerOneCharacter, playerTwoCharacter;
     public Image playerOneButton, playerTwoButton;
     public TextMeshProUGUI textButtonPlayerOne, textButtonPlayerTwo;
+    public GameObject[] charactersPlayer1;
+    public GameObject[] charactersPlayer2;
+    public CharactersSelectedLoader charactersSelectedLoader;
     public void SetPlayerCharacter(CharacterSO character)
     {
         if (!characterOneSelected)
         {
-            playerOneCharacter.GetComponent<MeshFilter>().mesh = character.mesh;
-            playerOneCharacter.GetComponent<MeshRenderer>().material = character.material;
+            foreach (var characterPlayer in charactersPlayer1)
+            {
+                characterPlayer.SetActive(false);
+            }
+            charactersPlayer1[character.characterID].SetActive(true);
+            charactersSelectedLoader.player1SelectedCharacter = character.characterPrefab;
         }
         else if (!characterTwoSelected)
         {
-            playerTwoCharacter.GetComponent<MeshFilter>().mesh = character.mesh;
-            playerTwoCharacter.GetComponent<MeshRenderer>().material = character.material;
+            foreach (var characterPlayer in charactersPlayer2)
+            {
+                characterPlayer.SetActive(false);
+            }
+            charactersPlayer2[character.characterID].SetActive(true);
+            charactersSelectedLoader.player2SelectedCharacter = character.characterPrefab;
         }
     }
     public void ToggleCharacterSelection(bool playerOne)
@@ -51,7 +61,7 @@ public class CharacterSelectionBehaviours : MonoBehaviour
     {
         if (characterOneSelected && characterTwoSelected)
         {
-            SceneManager.LoadScene("Camera");
+            SceneManager.LoadScene("IA");
         }
     }
     public void GoBack()

@@ -1167,7 +1167,7 @@ GameObject:
   - component: {fileID: 3993408913414881487}
   - component: {fileID: 3746202966203905741}
   m_Layer: 7
-  m_Name: Fight Idle
+  m_Name: Ninja
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

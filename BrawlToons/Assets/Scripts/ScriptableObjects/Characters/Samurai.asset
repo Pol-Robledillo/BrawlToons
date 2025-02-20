@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e0667f3942d930479eb29ce2ac41d0b, type: 3}
-  m_Name: CylinderSO
+  m_Name: Samurai
   m_EditorClassIdentifier: 
-  characterName: Cylinder
-  mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: 080d118f7d3939941b048ef53758f81d, type: 2}
+  characterID: 0
+  characterName: Samurai
+  characterPrefab: {fileID: 42937711443218923, guid: 95e158a2ecf5a094480709eb10a684f7, type: 3}
