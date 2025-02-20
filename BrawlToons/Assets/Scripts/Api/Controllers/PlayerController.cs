@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour
 {
     //url básica de la api
     private const string ApiBaseUrl = "http://localhost:5000/api/player";
-
+    public string requestAnswer;
+    public bool reqSucces=false;
+    public BrawlToonsAPI.Models.Player reqPlayer;
     //funciones para llamar a las corrutinas
     public void GetPlayerFunc(int id)
     {
@@ -70,10 +72,13 @@ public class PlayerController : MonoBehaviour
             {
                 BrawlToonsAPI.Models.Player createdPlayer = JsonConvert.DeserializeObject<BrawlToonsAPI.Models.Player>(request.downloadHandler.text);
                 Debug.Log(createdPlayer);
+                reqPlayer = createdPlayer;
+                reqSucces=true;
             }
             else
             {
                 Debug.LogError($"Error: {request.error}");
+                reqSucces = false;
             }
         }
     }
@@ -87,11 +92,14 @@ public class PlayerController : MonoBehaviour
             if (request.result == UnityWebRequest.Result.Success)
             {
                 BrawlToonsAPI.Models.Player player = JsonConvert.DeserializeObject<BrawlToonsAPI.Models.Player>(request.downloadHandler.text);
+                reqPlayer= player;
                 Debug.Log("Todo Bien");
+                reqSucces=true;
             }
             else
             {
                 Debug.LogError($"Error: {request.error}");
+                reqSucces = false;
             }
         }
     }
