@@ -1,11 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Login : MonoBehaviour
+public class SignUp : MonoBehaviour
 {
     public TMP_InputField user;
     public TMP_InputField password;
@@ -17,18 +16,21 @@ public class Login : MonoBehaviour
     public void Start()
     {
         playerController = GetComponent<PlayerController>();
-        players.text = $"Player 1:{PlayerPrefs.GetString("NamePlayer1"," ")} Player 2: {PlayerPrefs.GetString("NamePlayer2"," ")}";
+        players.text = $"Player 1:{PlayerPrefs.GetString("NamePlayer1", " ")} Player 2: {PlayerPrefs.GetString("NamePlayer2", " ")}";
     }
-    public void OnLogin()
+    public void OnSignUp()
     {
-        //llamar funcion login de la api
-        playerController.VerifyUserFunc(user.text, password.text);
+        
+        BrawlToonsAPI.Models.Player newPlayer = new BrawlToonsAPI.Models.Player(user.text, password.text) { };
+        playerController.PostPlayerFunc(newPlayer);
         StartCoroutine(GetRequest(1));
     }
-    public void OnLogin2()
+
+    public void OnSignUp2()
     {
-        //llamar funcion login de la api
-        playerController.VerifyUserFunc(user2.text, password2.text);
+
+        BrawlToonsAPI.Models.Player newPlayer = new BrawlToonsAPI.Models.Player(user2.text, password2.text) { };
+        playerController.PostPlayerFunc(newPlayer);
         StartCoroutine(GetRequest(2));
     }
     public IEnumerator GetRequest(int playerNum)
@@ -48,7 +50,7 @@ public class Login : MonoBehaviour
             }
         }
         players.text = $"Player 1:{PlayerPrefs.GetString("NamePlayer1", " ")} Player 2: {PlayerPrefs.GetString("NamePlayer2", " ")}";
-        Debug.Log("Player 1 id: "+PlayerPrefs.GetInt("IdPlayer1"));
+        Debug.Log("Player 1 id: " + PlayerPrefs.GetInt("IdPlayer1"));
         Debug.Log("Player 2 id: " + PlayerPrefs.GetInt("IdPlayer2"));
     }
 }
