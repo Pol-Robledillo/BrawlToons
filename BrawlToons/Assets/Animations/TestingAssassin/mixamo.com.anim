@@ -39406,14 +39406,21 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.6333333
-    functionName: EnableCollider
+    functionName: LeftPunchEnableCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.8
-    functionName: DisableCollider
+    functionName: LeftPunchDisableCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.8
+    functionName: RightPunchEnableCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

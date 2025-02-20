@@ -58,6 +58,12 @@ public class InputBuffer : MonoBehaviour
 
         Debug.Log("Executing buffered input: " + inputName);
 
+        if (inputName == "Special")
+        {
+            playerStateMachine.currentState = PlayerStateMachine.States.attacking;
+            playerStateMachine.PerformSpecial();
+        }
+
         if (inputName == "Punch")
         {
             playerStateMachine.currentState = PlayerStateMachine.States.attacking;

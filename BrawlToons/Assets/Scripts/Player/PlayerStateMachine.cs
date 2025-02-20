@@ -24,6 +24,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     private Animator animator;
 
+    private SteelinaSpecial steelina;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
@@ -104,5 +106,8 @@ public class PlayerStateMachine : MonoBehaviour
     {
         stamina = 0;
         animator.SetBool("special", true);
+
+      
     }
+
 }

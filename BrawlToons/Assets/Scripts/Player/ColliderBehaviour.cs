@@ -4,27 +4,47 @@ using UnityEngine;
 
 public class ColliderBehaviour : MonoBehaviour
 {
-    [SerializeField] private Collider punchCollider;
-    [SerializeField] private Collider kickCollider;
+    [SerializeField] private Collider RightPunchCollider;
+    [SerializeField] private Collider RightKickCollider;
+    [SerializeField] private Collider LeftPunchCollider;
+    [SerializeField] private Collider LeftKickCollider;
     private void Start()
     {
-        punchCollider.enabled = false;
-        kickCollider.enabled = false;
+        RightPunchCollider.enabled = false;
+        RightKickCollider.enabled = false;
+        LeftPunchCollider.enabled = false;
+        LeftKickCollider.enabled = false;
     }
-    public void EnableCollider()
+    public void RightPunchEnableCollider()
     {
-        punchCollider.enabled = true;
+        RightPunchCollider.enabled = true;
     }
-    public void DisableCollider()
+    public void RightPunchDisableCollider()
     {
-        punchCollider.enabled = false;
+        RightPunchCollider.enabled = false;
     }
-    public void KickEnableCollider()
+    public void RightKickEnableCollider()
     {
-        kickCollider.enabled = true;
+        RightKickCollider.enabled = true;
     }
-    public void KickDisableCollider()
+    public void RightKickDisableCollider()
     {
-        kickCollider.enabled = false;
+        RightKickCollider.enabled = false;
+    }
+    public void LeftPunchEnableCollider()
+    {
+        LeftPunchCollider.enabled = true;
+    }
+    public void LeftPunchDisableCollider()
+    {
+        LeftPunchCollider.enabled = false;
+    }
+    public void LeftKickEnableCollider()
+    {
+        LeftKickCollider.enabled = true;
+    }
+    public void LeftKickDisableCollider()
+    {
+        LeftKickCollider.enabled = false;
     }
 }
