@@ -24,6 +24,7 @@ public class InputBuffer : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
         playerStateMachine = GetComponent<PlayerStateMachine>();
     }
     private void Update()

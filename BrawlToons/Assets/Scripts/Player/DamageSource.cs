@@ -8,7 +8,6 @@ public class DamageSource : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
         if (other.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
             if (damageable != null)
