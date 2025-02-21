@@ -46,11 +46,14 @@ public class PlayerController : MonoBehaviour
             if (request.result == UnityWebRequest.Result.Success)
             {
                 BrawlToonsAPI.Models.Player player = JsonConvert.DeserializeObject<BrawlToonsAPI.Models.Player>(request.downloadHandler.text);
+                reqPlayer = player;
+                reqSucces = true;
                 Debug.Log($"Id: {player.player_id}");
                 Debug.Log($"Games played: {player.games_played}");
             }
             else
             {
+                reqSucces=false;
                 Debug.LogError($"Error: {request.error}");
             }
         }
