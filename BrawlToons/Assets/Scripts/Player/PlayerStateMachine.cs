@@ -21,7 +21,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Vector2 knockbackDirection;
     public Vector2 moveInput;
     public int stamina;
-
+    public GameObject auraStamina;
     private Animator animator;
 
     private SteelinaSpecial steelina;
@@ -60,6 +60,13 @@ public class PlayerStateMachine : MonoBehaviour
                 }
                 break;
         }
+        ActivateAura();
+        
+    }
+    private void ActivateAura()
+    {
+        if (stamina >= 100) auraStamina.SetActive(true);
+        else auraStamina.SetActive(false);  
     }
     public void Walking()
     {
