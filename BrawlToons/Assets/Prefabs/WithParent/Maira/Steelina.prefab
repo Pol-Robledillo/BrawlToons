@@ -3067,7 +3067,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1936488993998635378, guid: 88b14fae91f3b5345abdc3e7a5f29793, type: 3}
       propertyPath: m_Name
-      value: Aura Lightning
+      value: Aura
       objectReference: {fileID: 0}
     - target: {fileID: 3501633444184293344, guid: 88b14fae91f3b5345abdc3e7a5f29793, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

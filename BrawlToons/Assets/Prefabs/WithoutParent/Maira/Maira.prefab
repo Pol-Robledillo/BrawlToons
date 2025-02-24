@@ -10108,7 +10108,7 @@ GameObject:
   - component: {fileID: 2609156551410927215}
   - component: {fileID: 7869965582269367708}
   m_Layer: 0
-  m_Name: Aura Lightning
+  m_Name: Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

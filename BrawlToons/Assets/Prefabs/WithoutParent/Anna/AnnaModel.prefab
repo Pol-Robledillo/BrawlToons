@@ -4874,7 +4874,7 @@ GameObject:
   - component: {fileID: 589699047425210615}
   - component: {fileID: 7774184123856585239}
   m_Layer: 0
-  m_Name: Aura Burn
+  m_Name: Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
