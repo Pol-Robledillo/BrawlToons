@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BrawlToonsAPI.Models;
+using Newtonsoft.Json;
+using System.Text;
+using UnityEngine.Networking;
 public class PostMatch : MonoBehaviour
 {
     private MatchesController _matchContoller;
     private PlayerCharacterController _playerCharController;
     private PlayerController _playerController;
+    private const string ApiBaseUrl = "http://localhost:5000/api/player";
+    private const string ApiBaseUrlMatch = "http://localhost:5000/api/Matches";
+    private const string ApiBaseUrlPC = "http://localhost:5000/api/PlayerCharacter";
     void Start()
     {
         _matchContoller = GetComponent<MatchesController>();
         _playerController = GetComponent<PlayerController>();
-        
+        //OnFinishMatch(24);
     }
 
     public void OnFinishMatch(int winnerId)
@@ -22,40 +28,133 @@ public class PostMatch : MonoBehaviour
             player_1_id = PlayerPrefs.GetInt("IdPlayer1", 0),
             player_2_id = PlayerPrefs.GetInt("IdPlayer2", 0),
             winner_id = winnerId,
-            date = System.DateTime.Now
+            date = System.DateTime.Now.Date
         };
-        _matchContoller.PostMatchFunc(match);
-        //_playerController.GetPlayer(match.player_1_id);
-        //WaitPlayer(winnerId);
-        //_playerController.GetPlayer(match.player_2_id);
-        //WaitPlayer(winnerId);
+        StartCoroutine(AddMatch(match));
+
+        StartCoroutine(GetPlayerToUpdate(match.player_1_id, match.winner_id));
+        StartCoroutine(GetPlayerToUpdate(match.player_2_id, match.winner_id));
+
+        StartCoroutine(GetPlayerCharacterStats(PlayerPrefs.GetInt("IdPlayer1"), 0, winnerId));
+        StartCoroutine(GetPlayerCharacterStats(PlayerPrefs.GetInt("IdPlayer2"), 1, winnerId));
     }
 
-    public void UpdatePlayerChar()
+    public IEnumerator GetPlayerToUpdate(int id, int winnerId)
     {
 
-    }
-
-    public void UpdatePlayer(int winnerId, int idPlayer)
-    {
-        
-    }
-
-    public IEnumerator WaitPlayer(int winnerId)
-    {
-        yield return new WaitForSeconds(1);
-        BrawlToonsAPI.Models.Player playerToUpdate = _playerController.reqPlayer;
-        if(playerToUpdate != null)
+        using (UnityWebRequest request = UnityWebRequest.Get($"{ApiBaseUrl}/GET/{id}"))
         {
-            if(playerToUpdate.player_id==winnerId)
+            yield return request.SendWebRequest();
+            if (request.result == UnityWebRequest.Result.Success)
             {
-                playerToUpdate.total_wins += 1;
+                BrawlToonsAPI.Models.Player player = JsonConvert.DeserializeObject<BrawlToonsAPI.Models.Player>(request.downloadHandler.text);
+                player.games_played += 1;
+                if (player.player_id == winnerId)
+                {
+                    player.total_wins += 1;
+                }
+                else
+                {
+                    player.total_losses += 1;
+                }
+                StartCoroutine(UpdatePlayer(player));
             }
             else
             {
-                playerToUpdate.total_losses += 1;
+                Debug.LogError($"Error: {request.error}");
             }
-            _playerController.UpdatePlayer(playerToUpdate);
         }
     }
+    public IEnumerator UpdatePlayer(BrawlToonsAPI.Models.Player player)
+    {
+        string jsonData = JsonConvert.SerializeObject(player);
+        using (UnityWebRequest request = new UnityWebRequest($"{ApiBaseUrl}/UPDATE", "PUT"))
+        {
+            byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            yield return request.SendWebRequest();
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError($"Error: {request.error}");
+            }
+
+        }
+    }
+    private IEnumerator GetPlayerCharacterStats(int playerId, int characterId, int winnerId)
+    {
+
+        using (UnityWebRequest request = UnityWebRequest.Get($"{ApiBaseUrlPC}/GET/{playerId},{characterId}"))
+        {
+            yield return request.SendWebRequest();
+            Debug.Log("aaaa");
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                var playerCharacter = JsonConvert.DeserializeObject<PlayerCharacter>(request.downloadHandler.text);
+                if (winnerId == playerId)
+                {
+                    playerCharacter.wins += 1;
+                }
+                else
+                {
+                    playerCharacter.defeats += 1;
+                }
+                Debug.Log("Ci");
+                StartCoroutine(UpdatePlayerCharacter(playerCharacter));
+            }
+            else
+            {
+                Debug.Log("tete no va");
+            }
+        }
+    }
+    private IEnumerator UpdatePlayerCharacter(PlayerCharacter playerCharacter)
+    {
+        string jsonData = JsonConvert.SerializeObject(playerCharacter);
+        using (UnityWebRequest request = new UnityWebRequest($"{ApiBaseUrlPC}/UPDATE", "PUT"))
+        {
+            byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            yield return request.SendWebRequest();
+
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError($"Error: {request.error}");
+            }
+            else
+            {
+                Debug.Log("Ci");
+            }
+        }
+    }
+
+    private IEnumerator AddMatch(Matches match)
+    {
+        Debug.Log("Match");
+        string jsonData = JsonConvert.SerializeObject(match);
+        using (UnityWebRequest request = new UnityWebRequest($"{ApiBaseUrlMatch}/PostMatch", "POST"))
+        {
+            byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            yield return request.SendWebRequest();
+
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError($"Error: {request.error}");
+            }
+            else
+            {
+                Debug.Log("Ci");
+            }
+        }
+    }
+
 }
