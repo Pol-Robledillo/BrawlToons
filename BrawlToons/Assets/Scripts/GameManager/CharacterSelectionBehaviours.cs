@@ -23,6 +23,7 @@ public class CharacterSelectionBehaviours : MonoBehaviour
             }
             charactersPlayer1[character.characterID].SetActive(true);
             charactersSelectedLoader.player1SelectedCharacter = character.characterPrefab;
+            PlayerPrefs.SetInt("Player1Character", character.characterID);
         }
         else if (!characterTwoSelected)
         {
@@ -32,6 +33,7 @@ public class CharacterSelectionBehaviours : MonoBehaviour
             }
             charactersPlayer2[character.characterID].SetActive(true);
             charactersSelectedLoader.player2SelectedCharacter = character.characterPrefab;
+            PlayerPrefs.SetInt("Player2Character", character.characterID);
         }
     }
     public void ToggleCharacterSelection(bool playerOne)
@@ -61,7 +63,14 @@ public class CharacterSelectionBehaviours : MonoBehaviour
     {
         if (characterOneSelected && characterTwoSelected)
         {
-            SceneManager.LoadScene("IA");
+            if (SceneManager.GetActiveScene().name == "CharacterSelectionAI")
+            {
+                SceneManager.LoadScene("AI");
+            }
+            else
+            {
+                SceneManager.LoadScene("PvP");
+            }
         }
     }
     public void GoBack()

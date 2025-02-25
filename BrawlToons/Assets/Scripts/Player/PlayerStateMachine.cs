@@ -22,7 +22,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Vector2 moveInput;
     public int stamina;
     public GameObject auraStamina;
-    private Animator animator;
+    public Animator animator;
 
     private SteelinaSpecial steelina;
 

@@ -10,7 +10,7 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
     private InputBuffer inputBuffer;
     public PlayerStateMachine playerStateMachine;
     Player player;
-    private Animator animator;
+    public Animator animator;
     public bool reduceDamage = false;
     void Awake()
     {

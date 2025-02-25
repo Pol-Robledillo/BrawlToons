@@ -19,7 +19,7 @@ public class InputBuffer : MonoBehaviour
 
     private Queue<InputEntry> inputQueue = new Queue<InputEntry>();
     public float bufferTime = 1f;
-    private Animator animator;
+    public Animator animator;
     private PlayerStateMachine playerStateMachine;
 
     private void Awake()
