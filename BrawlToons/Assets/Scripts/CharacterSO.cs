@@ -6,5 +6,6 @@ public class CharacterSO : ScriptableObject
 {
     public int characterID;
     public string characterName;
+    public Sprite characterIcon;
     public GameObject characterPrefab;
 }
