@@ -8,9 +8,13 @@ public class MenuBehaviours : MonoBehaviour
     public Canvas mainMenu;
     public Canvas settings;
     public Canvas login;
-    public void StartGame()
+    public void StartPvPGame()
     {
         SceneManager.LoadScene("CharacterSelection");
+    }
+    public void StartAIGame()
+    {
+        SceneManager.LoadScene("CharacterSelectionAI");
     }
     public void QuitGame()
     {
