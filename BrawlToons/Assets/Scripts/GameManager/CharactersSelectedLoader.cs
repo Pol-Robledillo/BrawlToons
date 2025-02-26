@@ -1,21 +1,22 @@
+using BrawlToonsAPI.Models;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CharactersSelectedLoader : MonoBehaviour
 {
     public GameObject player1SelectedCharacter;
     public GameObject player2SelectedCharacter;
+    public Sprite player1SelectedCharacterSprite;
+    public Sprite player2SelectedCharacterSprite;
+
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-    void Update()
-    {
-
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode load)
     {
@@ -29,7 +30,6 @@ public class CharactersSelectedLoader : MonoBehaviour
                 Debug.Log(ai);
                 if (player != null && ai != null)
                 {
-                    Debug.Log("Player and AI found");
                     GameObject playerCharacter = Instantiate(player1SelectedCharacter, player.transform.position, Quaternion.identity, player.transform);
                     GameObject aiCharacter = Instantiate(player2SelectedCharacter, ai.transform.position, Quaternion.identity, ai.transform);
 
@@ -37,13 +37,21 @@ public class CharactersSelectedLoader : MonoBehaviour
                     aiCharacter.transform.rotation = Quaternion.Euler(0, -90, 0);
 
                     player.GetComponent<PlayerStateMachine>().animator = playerCharacter.GetComponent<Animator>();
+                    player.GetComponent<PlayerStateMachine>().auraStamina = playerCharacter.transform.Find("Aura").gameObject;
                     player.GetComponent<Player1Control>().animator = playerCharacter.GetComponent<Animator>();
                     player.GetComponent<InputBuffer>().animator = playerCharacter.GetComponent<Animator>();
 
                     ai.GetComponent<CharacterAI>().anim = aiCharacter.GetComponent<Animator>();
 
+
+
                     player.GetComponent<Player1Control>().enabled = true;
                     ai.GetComponent<CharacterAI>().enabled = true;
+
+                    GameObject character1Icon = GameObject.Find("Character1Icon");
+                    GameObject character2Icon = GameObject.Find("Character2Icon");
+                    character1Icon.GetComponent<Image>().sprite = player1SelectedCharacterSprite;
+                    character2Icon.GetComponent<Image>().sprite = player2SelectedCharacterSprite;
                 }
             }
             else if (scene.name == "PvP")
@@ -60,18 +68,24 @@ public class CharactersSelectedLoader : MonoBehaviour
                     player2Character.transform.rotation = new Quaternion(0, -90, 0, 0);
 
                     player1.GetComponent<PlayerStateMachine>().animator = player1Character.GetComponent<Animator>();
+                    player1.GetComponent<PlayerStateMachine>().auraStamina = player1Character.transform.Find("Aura").gameObject;
                     player1.GetComponent<Player1Control>().animator = player1Character.GetComponent<Animator>();
                     player1.GetComponent<InputBuffer>().animator = player1Character.GetComponent<Animator>();
 
                     player2.GetComponent<PlayerStateMachine>().animator = player2Character.GetComponent<Animator>();
+                    player2.GetComponent<PlayerStateMachine>().auraStamina = player2Character.transform.Find("Aura").gameObject;
                     player2.GetComponent<Player1Control>().animator = player2Character.GetComponent<Animator>();
                     player2.GetComponent<InputBuffer>().animator = player2Character.GetComponent<Animator>();
 
                     player1.GetComponent<Player1Control>().enabled = true;
                     player2.GetComponent<Player2Control>().enabled = true;
+
+                    GameObject[] characterIcons = GameObject.FindGameObjectsWithTag("CenterArea");
+                    characterIcons[0].GetComponent<SpriteRenderer>().sprite = player1SelectedCharacterSprite;
+                    characterIcons[1].GetComponent<SpriteRenderer>().sprite = player2SelectedCharacterSprite;
                 }
             }
-            else if (scene.name != "CharacterSelection" || scene.name != "CharacterSelectionAI")
+            else if (scene.name != "CharacterSelection" && scene.name != "CharacterSelectionAI")
             {
                 Destroy(this.gameObject);
             }
