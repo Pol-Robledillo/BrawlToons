@@ -19,7 +19,6 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
         player.Player1.SetCallbacks(this);
         inputBuffer = GetComponent<InputBuffer>();
         playerStateMachine = GetComponent<PlayerStateMachine>();
-        animator = GetComponentInChildren<Animator>();
     }
     private void OnEnable()
     {

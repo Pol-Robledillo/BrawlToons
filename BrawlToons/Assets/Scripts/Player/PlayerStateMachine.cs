@@ -24,11 +24,8 @@ public class PlayerStateMachine : MonoBehaviour
     public GameObject auraStamina;
     public Animator animator;
 
-    private SteelinaSpecial steelina;
-
     private void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
         knockbackDirection = GetComponent<Transform>().rotation.y < 0 ? new Vector2(-1, 0) : new Vector2(1, 0);
     }
 
@@ -61,7 +58,6 @@ public class PlayerStateMachine : MonoBehaviour
                 break;
         }
         ActivateAura();
-        
     }
     private void ActivateAura()
     {
@@ -113,8 +109,5 @@ public class PlayerStateMachine : MonoBehaviour
     {
         stamina = 0;
         animator.SetBool("special", true);
-
-      
     }
-
 }

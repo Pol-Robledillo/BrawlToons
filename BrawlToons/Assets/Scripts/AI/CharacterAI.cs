@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterAI : MonoBehaviour
 {
+    public static CharacterAI instance;
+
     public CharacterIdleState idleState;
     public CharacterMoveState moveState;
     public CharacterAttackState attackState;
@@ -15,11 +17,16 @@ public class CharacterAI : MonoBehaviour
     public Animator anim;
     public SphereCollider attackRange;
     public ACharacterAIState currentState;
+    public Character character;
+
+    public int stamina = 0;
 
     public float moveSpeed = 3f;
     public bool playerInRange = false, isBlocking = false;
-    public int health = 100;
-
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         idleState = new CharacterIdleState();
@@ -31,6 +38,7 @@ public class CharacterAI : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         attackRange = GetComponent<SphereCollider>();
+        character = GetComponent<Character>();
         currentState = idleState;
 
         currentState.EnterState(this);
@@ -100,7 +108,7 @@ public class CharacterAI : MonoBehaviour
     }
     public bool CheckIfAlive()
     {
-        if (health <= 0)
+        if (character.health <= 0)
         {
             ChangeState(defeatState);
             return false;

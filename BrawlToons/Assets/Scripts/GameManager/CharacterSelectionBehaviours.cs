@@ -23,6 +23,7 @@ public class CharacterSelectionBehaviours : MonoBehaviour
             }
             charactersPlayer1[character.characterID].SetActive(true);
             charactersSelectedLoader.player1SelectedCharacter = character.characterPrefab;
+            charactersSelectedLoader.player1SelectedCharacterSprite = character.characterIcon;
             PlayerPrefs.SetInt("Player1Character", character.characterID);
         }
         else if (!characterTwoSelected)
@@ -33,6 +34,7 @@ public class CharacterSelectionBehaviours : MonoBehaviour
             }
             charactersPlayer2[character.characterID].SetActive(true);
             charactersSelectedLoader.player2SelectedCharacter = character.characterPrefab;
+            charactersSelectedLoader.player2SelectedCharacterSprite = character.characterIcon;
             PlayerPrefs.SetInt("Player2Character", character.characterID);
         }
     }
@@ -44,7 +46,6 @@ public class CharacterSelectionBehaviours : MonoBehaviour
             {
                 characterOneSelected = !characterOneSelected;
                 textButtonPlayerOne.text = characterOneSelected ? "Cancel" : "Select";
-                textButtonPlayerOne.color = characterOneSelected ? Color.white : Color.black;
                 playerOneButton.color = characterOneSelected ? Color.grey : Color.green;
             }
         }
@@ -54,7 +55,6 @@ public class CharacterSelectionBehaviours : MonoBehaviour
             {
                 characterTwoSelected = !characterTwoSelected;
                 textButtonPlayerTwo.text = characterTwoSelected ? "Cancel" : "Select";
-                textButtonPlayerTwo.color = characterTwoSelected ? Color.white : Color.black;
                 playerTwoButton.color = characterTwoSelected ? Color.grey : Color.green;
             }
         }

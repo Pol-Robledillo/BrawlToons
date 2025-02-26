@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StaminaSliderP2 : MonoBehaviour
 {
@@ -12,14 +13,24 @@ public class StaminaSliderP2 : MonoBehaviour
     void Start()
     {
         staminaSlider.maxValue = maxStamina;
-        staminaSlider.value = Player2Control.instance.playerStateMachine.stamina; 
+        staminaSlider.value = 0; 
     }
 
     void Update()
     {
-        if (staminaSlider.value != Player2Control.instance.playerStateMachine.stamina)
+        if (SceneManager.GetActiveScene().name == "AI")
         {
-            staminaSlider.value = Player2Control.instance.playerStateMachine.stamina;
+            if (staminaSlider.value != CharacterAI.instance.stamina)
+            {
+                staminaSlider.value = CharacterAI.instance.stamina;
+            }
+        }
+        else
+        {
+            if (staminaSlider.value != Player2Control.instance.playerStateMachine.stamina)
+            {
+                staminaSlider.value = Player2Control.instance.playerStateMachine.stamina;
+            }
         }
     }
 }

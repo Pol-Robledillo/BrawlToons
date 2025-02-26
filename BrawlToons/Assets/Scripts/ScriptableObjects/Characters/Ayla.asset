@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterID: 2
   characterName: Ayla
-  characterIcon: {fileID: 0}
+  characterIcon: {fileID: 21300000, guid: 630b6785853212749a5c402ea438c572, type: 3}
   characterPrefab: {fileID: 2313359188488191758, guid: fee99970d9435754db393848ecc1ccad, type: 3}
