@@ -11,7 +11,7 @@ public class BallsStamina : MonoBehaviour
     private bool isPlayer = false;
     private void Awake()
     {
-        if (SceneManager.GetActiveScene().name == "AI")
+        if (SceneManager.GetActiveScene().name == "AI" && tag.Equals("Player2"))
         {
             characterAI = GetComponentInParent<CharacterAI>();
             isPlayer = false;

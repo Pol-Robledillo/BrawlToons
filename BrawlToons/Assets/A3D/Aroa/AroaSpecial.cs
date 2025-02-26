@@ -19,8 +19,8 @@ public class AroaSpecial : MonoBehaviour
     {
         particle.Play();
     }
-    public Animator animator; // Referencia al componente Animator
-    public float nuevaVelocidad = 1.5f; // La nueva velocidad para el Animator
+    public Animator animator; 
+    public float nuevaVelocidad = 1.5f; 
 
     private void Start()
     {
