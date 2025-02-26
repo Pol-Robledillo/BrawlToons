@@ -82414,7 +82414,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 4.0333333
+  - time: 3.9666667
     functionName: Changecolor
     data: 
     objectReferenceParameter: {fileID: 0}

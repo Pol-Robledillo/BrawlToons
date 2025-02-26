@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Stats.unity
     guid: 7102345481f23914f86c9a48d999a3c1
   - enabled: 1
+    path: Assets/Scenes/CharacterSelection.unity
+    guid: 7afeee6849c42804c9779d6c0770422c
+  - enabled: 1
     path: Assets/Scenes/CharacterSelectionAI.unity
     guid: f380bd32d58fc944f909eaad36e6343b
   - enabled: 1
@@ -20,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Camera.unity
     guid: 81de8bb16bfa0114a9913a12466edfc7
+  - enabled: 1
+    path: Assets/Scenes/PvP.unity
+    guid: efc740e2f46061c4ab818479d961a9b3
   m_configObjects: {}

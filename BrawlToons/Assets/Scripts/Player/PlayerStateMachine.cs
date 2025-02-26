@@ -57,10 +57,6 @@ public class PlayerStateMachine : MonoBehaviour
                 }
                 break;
         }
-        if (stamina >= 100)
-        {
-            stamina++;
-        }
         ActivateAura();
     }
     private void ActivateAura()
