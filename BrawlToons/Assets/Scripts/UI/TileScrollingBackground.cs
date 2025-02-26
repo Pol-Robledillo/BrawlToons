@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class TileScrollingBackground : MonoBehaviour
 {
-    private float tweenDuration = 10f;
+    public float tweenDuration = 4f;
     private void Awake()
     {
         Image image = GetComponent<Image>();
@@ -15,8 +15,8 @@ public class TileScrollingBackground : MonoBehaviour
         var posTween = DOTween.To(
             () => rectTransform.anchoredPosition, x => rectTransform.anchoredPosition = x,
             new Vector2(
-                image.sprite.texture.width * 0.5f,
-                image.sprite.texture.height * 0.5f),
+                -image.sprite.texture.width * 0.5f,
+                -image.sprite.texture.height * 0.5f),
                 tweenDuration);
 
         posTween.SetEase(Ease.Linear);
@@ -25,8 +25,8 @@ public class TileScrollingBackground : MonoBehaviour
         var sizeTween = DOTween.To(
             () => rectTransform.sizeDelta, x => rectTransform.sizeDelta = x,
             new Vector2(
-                image.sprite.texture.width * 0.5f,
-                image.sprite.texture.height * 0.5f),
+                image.sprite.texture.width,
+                image.sprite.texture.height),
                 tweenDuration);
 
         sizeTween.SetEase(Ease.Linear);
