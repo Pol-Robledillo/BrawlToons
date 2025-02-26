@@ -13,10 +13,12 @@ public class DamageSource : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Collision Detected");
         if (other.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
             if (damageable != null)
             {
+                Debug.Log("Enemy Hit");
                 player.stamina += 10;
                 // Obtén la posición de la colisión.
                 Vector3 hitPoint = other.ClosestPointOnBounds(transform.position);

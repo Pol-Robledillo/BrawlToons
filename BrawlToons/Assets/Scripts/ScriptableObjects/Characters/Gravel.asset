@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterID: 3
   characterName: Gravel
-  characterIcon: {fileID: 0}
+  characterIcon: {fileID: 21300000, guid: beaf641d1b0e3134c93af78e54334475, type: 3}
   characterPrefab: {fileID: 4392488180235229286, guid: a9a7cf8f8ad9d46478a4614a5625e202, type: 3}
