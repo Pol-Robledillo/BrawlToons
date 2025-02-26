@@ -13,7 +13,7 @@ public class Stats : MonoBehaviour
     private const string ApiBaseUrlPc = "http://localhost:5000/api/PlayerCharacter";
     public void Start()
     {
-        OnEnterRanking(1);
+        //OnEnterRanking(1);
     }
     public void OnEnterRanking(int playerNum)
     {
