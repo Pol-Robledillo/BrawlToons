@@ -5273,7 +5273,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -15545,8 +15545,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 0.15361224
-  m_Center: {x: 0.0075101266, y: 0.37069857, z: 0.07100431}
+  m_Radius: 0.24841037
+  m_Center: {x: 0.007509602, y: 0.42328152, z: 0.07100376}
 --- !u!114 &3103404929470960638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31228,7 +31228,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -66140,8 +66140,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.17282963
-  m_Center: {x: -0.012436853, y: 0.048464503, z: 0.04740703}
+  m_Radius: 0.30926034
+  m_Center: {x: -0.012436882, y: 0.07398009, z: 0.047406826}
 --- !u!114 &2231838704275321675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66261,7 +66261,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -71340,7 +71340,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
