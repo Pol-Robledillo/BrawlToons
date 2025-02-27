@@ -47,7 +47,7 @@ public class Login : MonoBehaviour
                 PlayerPrefs.SetString("NamePlayer2", playerController.reqPlayer.username);
             }
         }
-        players.text = $"Player 1:{PlayerPrefs.GetString("NamePlayer1", " ")} Player 2: {PlayerPrefs.GetString("NamePlayer2", " ")}";
+        players.text = $"P1 : {PlayerPrefs.GetString("NamePlayer1", " ")} P2 : {PlayerPrefs.GetString("NamePlayer2", " ")}";
         Debug.Log("Player 1 id: "+PlayerPrefs.GetInt("IdPlayer1"));
         Debug.Log("Player 2 id: " + PlayerPrefs.GetInt("IdPlayer2"));
     }
