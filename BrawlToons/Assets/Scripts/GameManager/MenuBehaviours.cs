@@ -16,6 +16,10 @@ public class MenuBehaviours : MonoBehaviour
     {
         SceneManager.LoadScene("CharacterSelectionAI");
     }
+    public void ChargeStats()
+    {
+        SceneManager.LoadScene("Stats");
+    }
     public void QuitGame()
     {
         Application.Quit();
