@@ -15,6 +15,7 @@ public class DamageSource : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
+            Debug.Log(other.gameObject.name);
             if (damageable != null)
             {
                 Debug.Log("Enemy Hit");

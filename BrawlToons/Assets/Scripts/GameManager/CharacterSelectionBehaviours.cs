@@ -42,7 +42,7 @@ public class CharacterSelectionBehaviours : MonoBehaviour
     {
         if (playerOne)
         {
-            if (!characterTwoSelected)
+            if (!characterTwoSelected && charactersSelectedLoader.player1SelectedCharacter != null)
             {
                 characterOneSelected = !characterOneSelected;
                 textButtonPlayerOne.text = characterOneSelected ? "Cancel" : "Select";
