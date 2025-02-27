@@ -22,7 +22,7 @@ public class TimeCountDown : MonoBehaviour
             {
                 timeRemaining = 0;
                 isCountingDown = false; 
-                countdownText.text = "¡FIN!";
+                countdownText.text = "End!";
             }
         }
     }

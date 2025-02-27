@@ -27,8 +27,6 @@ public class CharactersSelectedLoader : MonoBehaviour
             {
                 GameObject player = GameObject.Find("P1");
                 GameObject ai = GameObject.Find("P2");
-                Debug.Log(player);
-                Debug.Log(ai);
                 if (player != null && ai != null)
                 {
                     GameObject playerCharacter = Instantiate(player1SelectedCharacter, player.transform.position, Quaternion.identity, player.transform);
@@ -42,9 +40,10 @@ public class CharactersSelectedLoader : MonoBehaviour
                     player.GetComponent<PlayerStateMachine>().auraStamina = playerCharacter.transform.Find("Aura").gameObject;
                     player.GetComponent<Player1Control>().animator = playerCharacter.GetComponent<Animator>();
                     player.GetComponent<InputBuffer>().animator = playerCharacter.GetComponent<Animator>();
+                    player.GetComponent<Character>().ParticleHit = playerCharacter.transform.Find("ParticleHit").GetComponent<ParticleSystem>();
 
                     ai.GetComponent<CharacterAI>().anim = aiCharacter.GetComponent<Animator>();
-
+                    player.GetComponent<Character>().ParticleHit = aiCharacter.transform.Find("ParticleHit").GetComponent<ParticleSystem>();
 
 
                     player.GetComponent<Player1Control>().enabled = true;
@@ -71,35 +70,16 @@ public class CharactersSelectedLoader : MonoBehaviour
                     player2Character.transform.rotation = Quaternion.Euler(0, -90, 0);
 
                     player1.GetComponent<PlayerStateMachine>().animator = player1Character.GetComponent<Animator>();
-                    //player1.GetComponent<PlayerStateMachine>().auraStamina = player1Character.transform.Find("Aura").gameObject;
-                    Transform[] children = player1Character.transform.GetComponentsInChildren<Transform>();
-                    
-                    foreach( var child in children )
-                    {
-                        Debug.Log(child.name);
-                        if (child.name == "Aura")
-                        {
-                            player1.GetComponent<PlayerStateMachine>().auraStamina = child.gameObject;
-                            break;
-                        }
-                    }
+                    player1.GetComponent<PlayerStateMachine>().auraStamina = player1Character.transform.Find("Aura").gameObject;
                     player1.GetComponent<Player1Control>().animator = player1Character.GetComponent<Animator>();
                     player1.GetComponent<InputBuffer>().animator = player1Character.GetComponent<Animator>();
+                    player1.GetComponent<Character>().ParticleHit = player1Character.transform.Find("ParticleHit").GetComponent<ParticleSystem>();
 
                     player2.GetComponent<PlayerStateMachine>().animator = player2Character.GetComponent<Animator>();
-                    //player2.GetComponent<PlayerStateMachine>().auraStamina = player2Character.transform.Find("Aura").gameObject;
-                    Transform[] children2 = player2Character.transform.GetComponentsInChildren<Transform>();
-                    foreach (var child in children2)
-                    {
-                        Debug.Log(child.name);
-                        if (string.Equals(child.name, "Aura"))
-                        {
-                            player2.GetComponent<PlayerStateMachine>().auraStamina = child.gameObject;
-                            break;
-                        }
-                    }
+                    player2.GetComponent<PlayerStateMachine>().auraStamina = player2Character.transform.Find("Aura").gameObject;
                     player2.GetComponent<Player2Control>().animator = player2Character.GetComponent<Animator>();
                     player2.GetComponent<InputBuffer>().animator = player2Character.GetComponent<Animator>();
+                    player2.GetComponent<Character>().ParticleHit = player2Character.transform.Find("ParticleHit").GetComponent<ParticleSystem>();
 
                     player1.GetComponent<Player1Control>().enabled = true;
                     player2.GetComponent<Player2Control>().enabled = true;
