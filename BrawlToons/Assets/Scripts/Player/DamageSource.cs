@@ -20,10 +20,9 @@ public class DamageSource : MonoBehaviour
             {
                 Debug.Log("Enemy Hit");
                 player.stamina += 10;
-                // Obtén la posición de la colisión.
-                Vector3 hitPoint = other.ClosestPointOnBounds(transform.position);
+
                 
-                damageable.TakeDamage(damage);  // Pasar la posición del impacto a TakeDamage
+                damageable.TakeDamage(damage);  
             }
         }
     }

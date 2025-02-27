@@ -4250,10 +4250,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gravel
       objectReference: {fileID: 0}
-    - target: {fileID: 7530909488383341811, guid: 65814e7fefb31b84b8d407fd080a4d08, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
