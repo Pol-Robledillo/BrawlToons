@@ -87,8 +87,7 @@ public class CharactersSelectedLoader : MonoBehaviour
                     player2.GetComponent<InputBuffer>().animator = player2Character.GetComponent<Animator>();
                     player2.GetComponent<Character>().ParticleHit = player2Character.transform.Find("ParticleHit").GetComponent<ParticleSystem>();
 
-                    player1.GetComponent<Player1Control>().enabled = true;
-                    player2.GetComponent<Player2Control>().enabled = true;
+
 
                     GameObject character1Icon = GameObject.Find("Character1Icon");
                     GameObject character2Icon = GameObject.Find("Character2Icon");

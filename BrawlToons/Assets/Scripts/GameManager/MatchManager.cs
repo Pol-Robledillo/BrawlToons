@@ -15,6 +15,13 @@ public class MatchManager : MonoBehaviour
     public GameObject winnerMessage;
     public TextMeshProUGUI winnerText;
 
+
+    public bool isMatchOver = false;
+    private void Start()
+    {
+        
+    }
+    
     private void Update()
     {
         if (startCountDown.isCountingDown == false)
@@ -30,8 +37,9 @@ public class MatchManager : MonoBehaviour
                 GameObject.Find("P2").GetComponent<Player2Control>().enabled = true;
             }
         }
-        if (gameCountDown.timeRemaining == 0)
+        if (gameCountDown.timeRemaining == 0 && !isMatchOver)
         {
+
             Character player1Character = GameObject.Find("P1").GetComponent<Character>();
             Character player2Character = GameObject.Find("P2").GetComponent<Character>();
             if (player1Character.health > player2Character.health)
@@ -66,10 +74,13 @@ public class MatchManager : MonoBehaviour
         }
         winnerText.text = playerWinner == 1 ? "Player 1 Wins!" : "Player 2 Wins!";
         winnerMessage.SetActive(true);
+
+
         StartCoroutine(Exit());
     }
     private IEnumerator Exit()
     {
+
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("Menu");
     }

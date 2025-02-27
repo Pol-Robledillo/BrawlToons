@@ -56,7 +56,9 @@ public class Character : MonoBehaviour, IDamageable
 
         if (health <= 0)
         {
-            GameObject.Find("MatchManager").GetComponent<MatchManager>().EndGame(this.gameObject.name == "P1" ? 2 : 1);
+            MatchManager matchManager=GameObject.Find("MatchManager").GetComponent<MatchManager>();
+            matchManager.EndGame(this.gameObject.name == "P1" ? 2 : 1);
+            matchManager.isMatchOver = true;
         }
     }
 }

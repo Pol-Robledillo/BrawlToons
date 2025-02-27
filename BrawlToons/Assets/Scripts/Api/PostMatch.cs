@@ -15,12 +15,12 @@ public class PostMatch : MonoBehaviour
     private const string ApiBaseUrlPC = "http://localhost:5000/api/PlayerCharacter";
     void Start()
     {
-        _matchContoller = GetComponent<MatchesController>();
-        _playerController = GetComponent<PlayerController>();
+
     }
 
     public void OnFinishMatch(int winnerId)
     {
+        Debug.Log("Match Finished");
         Matches match = new Matches()
         {
             match_id = 0,
@@ -34,8 +34,8 @@ public class PostMatch : MonoBehaviour
         StartCoroutine(GetPlayerToUpdate(match.player_1_id, match.winner_id));
         StartCoroutine(GetPlayerToUpdate(match.player_2_id, match.winner_id));
 
-        StartCoroutine(GetPlayerCharacterStats(PlayerPrefs.GetInt("IdPlayer1"), 0, winnerId));
-        StartCoroutine(GetPlayerCharacterStats(PlayerPrefs.GetInt("IdPlayer2"), 1, winnerId));
+        StartCoroutine(GetPlayerCharacterStats(PlayerPrefs.GetInt("IdPlayer1"), PlayerPrefs.GetInt("Player1Character"), winnerId));
+        StartCoroutine(GetPlayerCharacterStats(PlayerPrefs.GetInt("IdPlayer2"), PlayerPrefs.GetInt("Player2Character"), winnerId));
     }
 
     public IEnumerator GetPlayerToUpdate(int id, int winnerId)
