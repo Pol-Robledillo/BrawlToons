@@ -16,7 +16,7 @@ public class PlayerStateMachine : MonoBehaviour
     public States currentState = States.idle;
 
     public float moveSpeed = 5f;
-    public float knockbackForce = 0.3f;
+    public float knockbackForce = 0.2f;
     public float knockbackDuration = 0.1f;
     public Vector2 knockbackDirection;
     public Vector2 moveInput;
