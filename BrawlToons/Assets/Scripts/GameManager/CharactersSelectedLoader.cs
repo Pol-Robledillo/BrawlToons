@@ -55,10 +55,6 @@ public class CharactersSelectedLoader : MonoBehaviour
                     ai.GetComponent<CharacterAI>().auraStamina = aiCharacter.transform.Find("Aura").gameObject;
                     ai.GetComponent<Character>().ParticleHit = aiCharacter.transform.Find("ParticleHit").GetComponent<ParticleSystem>();
 
-
-                    player.GetComponent<Player1Control>().enabled = true;
-                    ai.GetComponent<CharacterAI>().enabled = true;
-
                     GameObject character1Icon = GameObject.Find("Character1Icon");
                     GameObject character2Icon = GameObject.Find("Character2Icon");
                     character1Icon.GetComponent<Image>().sprite = player1SelectedCharacterSprite;

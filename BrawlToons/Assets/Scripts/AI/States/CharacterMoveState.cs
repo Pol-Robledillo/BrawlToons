@@ -27,7 +27,7 @@ public class CharacterMoveState : ACharacterAIState
                     direction = character.player.GetComponent<PlayerStateMachine>().moveInput;
                 }
             }
-            character.transform.Translate(direction.x * (direction.x < 0 ? character.moveSpeed : character.moveSpeed / 1.5f) * Time.deltaTime, 0f, 0f);
+            character.transform.Translate(direction.x * character.moveSpeed * Time.deltaTime, 0f, 0f);
         }
     }
 }

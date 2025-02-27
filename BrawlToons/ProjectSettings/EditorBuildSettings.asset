@@ -16,13 +16,10 @@ EditorBuildSettings:
     guid: 7afeee6849c42804c9779d6c0770422c
   - enabled: 1
     path: Assets/Scenes/CharacterSelectionAI.unity
-    guid: f380bd32d58fc944f909eaad36e6343b
+    guid: d70c55734bfab3a4b9d68dd941bb2c4f
   - enabled: 1
     path: Assets/Scenes/AI.unity
-    guid: 1daa0f620baade3499e82f3977402082
-  - enabled: 1
-    path: Assets/Scenes/Camera.unity
-    guid: 81de8bb16bfa0114a9913a12466edfc7
+    guid: c11d126357b91d74eaf0f68d3c7880ab
   - enabled: 1
     path: Assets/Scenes/PvP.unity
     guid: efc740e2f46061c4ab818479d961a9b3

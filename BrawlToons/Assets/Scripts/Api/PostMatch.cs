@@ -17,7 +17,6 @@ public class PostMatch : MonoBehaviour
     {
         _matchContoller = GetComponent<MatchesController>();
         _playerController = GetComponent<PlayerController>();
-        //OnFinishMatch(24);
     }
 
     public void OnFinishMatch(int winnerId)

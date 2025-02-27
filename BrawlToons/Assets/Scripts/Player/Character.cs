@@ -14,13 +14,6 @@ public class Character : MonoBehaviour, IDamageable
     {
         health = maxHealth;
     }
-
-
-    public void Initialize(int initialHealth)
-    {
-        maxHealth = initialHealth;
-        health = maxHealth;
-    }
     public void TakeDamage(int damage)
     {
         CameraShaker.Instance.ShakeOnce(2f, 3f, 0.1f, 0.5f);
@@ -63,7 +56,7 @@ public class Character : MonoBehaviour, IDamageable
 
         if (health <= 0)
         {
-            //Destroy(gameObject);
+            GameObject.Find("MatchManager").GetComponent<MatchManager>().EndGame(this.gameObject.name == "P1" ? 2 : 1);
         }
     }
 }

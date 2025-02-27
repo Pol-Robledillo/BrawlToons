@@ -6,8 +6,10 @@ using UnityEngine;
 public class TimeCountDown : MonoBehaviour
 {
     public TextMeshProUGUI countdownText; 
-    private float timeRemaining = 99f; 
-    private bool isCountingDown = true;
+    public float timeRemaining = 99f; 
+    public bool isCountingDown = false;
+    public string endMessage;
+    public float timeToWait = 1f;
 
     void Update()
     {
@@ -22,8 +24,14 @@ public class TimeCountDown : MonoBehaviour
             {
                 timeRemaining = 0;
                 isCountingDown = false; 
-                countdownText.text = "End!";
+                countdownText.text = endMessage;
+                StartCoroutine(Hide());
             }
         }
+    }
+    private IEnumerator Hide()
+    {
+        yield return new WaitForSeconds(timeToWait);
+        countdownText.gameObject.SetActive(false);
     }
 }
