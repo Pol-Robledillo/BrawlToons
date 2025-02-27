@@ -29,6 +29,11 @@ public class CharacterAttackState : ACharacterAIState
     }
     private void ExecuteAttack(CharacterAI character)
     {
+        if (character.stamina >= 100)
+        {
+            character.anim.SetBool("special", true);
+            character.stamina = 0;
+        }
         if (new Random().Next(0, 2) == 0)
         {
             character.anim.SetBool("attack", true);

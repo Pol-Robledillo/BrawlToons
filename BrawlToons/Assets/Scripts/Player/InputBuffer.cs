@@ -55,8 +55,6 @@ public class InputBuffer : MonoBehaviour
 
         string inputName = inputQueue.Dequeue().inputName;
 
-        Debug.Log("Executing buffered input: " + inputName);
-
         if (inputName == "Special")
         {
             playerStateMachine.currentState = PlayerStateMachine.States.attacking;

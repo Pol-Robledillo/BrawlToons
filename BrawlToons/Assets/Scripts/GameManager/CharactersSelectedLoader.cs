@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class CharactersSelectedLoader : MonoBehaviour
 {
+    public static CharactersSelectedLoader instance;
     public GameObject player1SelectedCharacter;
     public GameObject player2SelectedCharacter;
     public Sprite player1SelectedCharacterSprite;
@@ -16,7 +17,15 @@ public class CharactersSelectedLoader : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(this);
+        }
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode load)
@@ -43,7 +52,8 @@ public class CharactersSelectedLoader : MonoBehaviour
                     player.GetComponent<Character>().ParticleHit = playerCharacter.transform.Find("ParticleHit").GetComponent<ParticleSystem>();
 
                     ai.GetComponent<CharacterAI>().anim = aiCharacter.GetComponent<Animator>();
-                    player.GetComponent<Character>().ParticleHit = aiCharacter.transform.Find("ParticleHit").GetComponent<ParticleSystem>();
+                    ai.GetComponent<CharacterAI>().auraStamina = aiCharacter.transform.Find("Aura").gameObject;
+                    ai.GetComponent<Character>().ParticleHit = aiCharacter.transform.Find("ParticleHit").GetComponent<ParticleSystem>();
 
 
                     player.GetComponent<Player1Control>().enabled = true;
@@ -89,10 +99,6 @@ public class CharactersSelectedLoader : MonoBehaviour
                     character1Icon.GetComponent<Image>().sprite = player1SelectedCharacterSprite;
                     character2Icon.GetComponent<Image>().sprite = player2SelectedCharacterSprite;
                 }
-            }
-            else if (scene.name != "CharacterSelection" && scene.name != "CharacterSelectionAI")
-            {
-                Destroy(this.gameObject);
             }
         }
     }

@@ -6,21 +6,33 @@ public class DamageSource : MonoBehaviour
 {
     [SerializeField] private int damage;
     private PlayerStateMachine player;
+    private CharacterAI characterAI;
+    private bool isPlayer = true;
+
     private void Awake()
     {
         player = GetComponentInParent<PlayerStateMachine>();
+        if (player == null)
+        {
+            characterAI = GetComponentInParent<CharacterAI>();
+            isPlayer = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
-            Debug.Log(other.gameObject.name);
             if (damageable != null)
             {
-                Debug.Log("Enemy Hit");
-                player.stamina += 10;
-
+                if (isPlayer)
+                {
+                    player.stamina += 10;
+                }
+                else
+                {
+                    characterAI.stamina += 10;
+                }
                 
                 damageable.TakeDamage(damage);  
             }

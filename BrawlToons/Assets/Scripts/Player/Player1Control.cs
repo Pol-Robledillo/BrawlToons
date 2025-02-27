@@ -44,10 +44,6 @@ public class Player1Control : MonoBehaviour, Player.IPlayer1Actions
             playerStateMachine.currentState = context.ReadValue<Vector2>() == Vector2.zero ? PlayerStateMachine.States.idle : PlayerStateMachine.States.walking;
         }
     }
-    public void OnCrouch(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
     public void OnBlock(InputAction.CallbackContext context)
     {
         if (playerStateMachine.currentState != PlayerStateMachine.States.attacking)

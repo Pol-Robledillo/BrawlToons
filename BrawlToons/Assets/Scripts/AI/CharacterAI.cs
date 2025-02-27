@@ -19,6 +19,8 @@ public class CharacterAI : MonoBehaviour
     public ACharacterAIState currentState;
     public Character character;
 
+    public GameObject auraStamina;
+
     public int stamina = 0;
 
     public float moveSpeed = 3f;
@@ -61,6 +63,12 @@ public class CharacterAI : MonoBehaviour
             }
             currentState.UpdateState(this);
         }
+        ActivateAura();
+    }
+    private void ActivateAura()
+    {
+        if (stamina >= 100) auraStamina.SetActive(true);
+        else auraStamina.SetActive(false);
     }
     private void CheckState()
     {

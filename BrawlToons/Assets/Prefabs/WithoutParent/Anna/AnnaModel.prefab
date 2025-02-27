@@ -50138,7 +50138,7 @@ GameObject:
   - component: {fileID: 2615259047455425043}
   - component: {fileID: 226994754000872827}
   - component: {fileID: 5804478270025438115}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RightHandTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50205,7 +50205,7 @@ GameObject:
   - component: {fileID: 3580389716441293302}
   - component: {fileID: 1569467255582171315}
   - component: {fileID: 9142197235568294798}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RightFootTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60307,7 +60307,7 @@ GameObject:
   - component: {fileID: 7694370267267741438}
   - component: {fileID: 1040629324965853926}
   - component: {fileID: 6684546059678973849}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LeftHandTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61289,7 +61289,7 @@ GameObject:
   - component: {fileID: 5038124888196815185}
   - component: {fileID: 9111723721513729941}
   - component: {fileID: 9059751891780859567}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LeftFeetTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

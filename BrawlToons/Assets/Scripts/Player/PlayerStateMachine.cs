@@ -8,7 +8,6 @@ public class PlayerStateMachine : MonoBehaviour
     {
         idle,
         walking,
-        crouching,
         hurt,
         attacking,
         blocking
@@ -45,13 +44,11 @@ public class PlayerStateMachine : MonoBehaviour
                     currentState = States.idle;
                 }
                 break;
-            case States.crouching:
-                break;
             case States.hurt:
                 Hurt();
                 break;
             case States.attacking:
-                if (!(animator.GetBool("attack") || animator.GetBool("kick")))
+                if (!(animator.GetBool("attack") || animator.GetBool("kick") || animator.GetBool("special")))
                 {
                     currentState = States.walking;
                 }

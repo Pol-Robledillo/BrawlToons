@@ -12,7 +12,6 @@ public class CharacterSelectionBehaviours : MonoBehaviour
     public TextMeshProUGUI textButtonPlayerOne, textButtonPlayerTwo;
     public GameObject[] charactersPlayer1;
     public GameObject[] charactersPlayer2;
-    public CharactersSelectedLoader charactersSelectedLoader;
     public void SetPlayerCharacter(CharacterSO character)
     {
         if (!characterOneSelected)
@@ -22,8 +21,8 @@ public class CharacterSelectionBehaviours : MonoBehaviour
                 characterPlayer.SetActive(false);
             }
             charactersPlayer1[character.characterID].SetActive(true);
-            charactersSelectedLoader.player1SelectedCharacter = character.characterPrefab;
-            charactersSelectedLoader.player1SelectedCharacterSprite = character.characterIcon;
+            CharactersSelectedLoader.instance.player1SelectedCharacter = character.characterPrefab;
+            CharactersSelectedLoader.instance.player1SelectedCharacterSprite = character.characterIcon;
             PlayerPrefs.SetInt("Player1Character", character.characterID);
         }
         else if (!characterTwoSelected)
@@ -33,8 +32,8 @@ public class CharacterSelectionBehaviours : MonoBehaviour
                 characterPlayer.SetActive(false);
             }
             charactersPlayer2[character.characterID].SetActive(true);
-            charactersSelectedLoader.player2SelectedCharacter = character.characterPrefab;
-            charactersSelectedLoader.player2SelectedCharacterSprite = character.characterIcon;
+            CharactersSelectedLoader.instance.player2SelectedCharacter = character.characterPrefab;
+            CharactersSelectedLoader.instance.player2SelectedCharacterSprite = character.characterIcon;
             PlayerPrefs.SetInt("Player2Character", character.characterID);
         }
     }
@@ -42,7 +41,7 @@ public class CharacterSelectionBehaviours : MonoBehaviour
     {
         if (playerOne)
         {
-            if (!characterTwoSelected && charactersSelectedLoader.player1SelectedCharacter != null)
+            if (!characterTwoSelected && CharactersSelectedLoader.instance.player1SelectedCharacter != null)
             {
                 characterOneSelected = !characterOneSelected;
                 textButtonPlayerOne.text = characterOneSelected ? "Cancel" : "Select";

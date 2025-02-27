@@ -37,15 +37,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Crouch"",
-                    ""type"": ""Button"",
-                    ""id"": ""5407a267-afdc-4947-842f-8d5eea393992"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Block"",
                     ""type"": ""Button"",
                     ""id"": ""69ea4aeb-51f9-4fa3-8e4d-9308bdb6bdf2"",
@@ -195,28 +186,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""46d9c9c9-2f0b-4687-a795-073145eeeb9e"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""52c316ec-7960-40b8-8eb1-f93e63adefe6"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""af3eb3e8-b96e-4c60-8d19-98c7e899632b"",
                     ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
@@ -328,15 +297,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Crouch"",
-                    ""type"": ""Button"",
-                    ""id"": ""4d7c70ef-850e-4845-ae70-a8110c8681cf"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Block"",
@@ -455,28 +415,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9a0efc55-3345-4019-86e1-44f16741f223"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""769ce3fd-ba36-4f1b-9a6d-344c0dac6173"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""fddf17cf-dfb8-4870-b102-26c5d7178976"",
                     ""path"": ""<Keyboard>/numpad1"",
                     ""interactions"": """",
@@ -560,7 +498,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
         // Player1
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
         m_Player1_Walk = m_Player1.FindAction("Walk", throwIfNotFound: true);
-        m_Player1_Crouch = m_Player1.FindAction("Crouch", throwIfNotFound: true);
         m_Player1_Block = m_Player1.FindAction("Block", throwIfNotFound: true);
         m_Player1_Punch = m_Player1.FindAction("Punch", throwIfNotFound: true);
         m_Player1_Kick = m_Player1.FindAction("Kick", throwIfNotFound: true);
@@ -568,7 +505,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Walk = m_Player2.FindAction("Walk", throwIfNotFound: true);
-        m_Player2_Crouch = m_Player2.FindAction("Crouch", throwIfNotFound: true);
         m_Player2_Block = m_Player2.FindAction("Block", throwIfNotFound: true);
         m_Player2_Punch = m_Player2.FindAction("Punch", throwIfNotFound: true);
         m_Player2_Kick = m_Player2.FindAction("Kick", throwIfNotFound: true);
@@ -635,7 +571,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player1;
     private List<IPlayer1Actions> m_Player1ActionsCallbackInterfaces = new List<IPlayer1Actions>();
     private readonly InputAction m_Player1_Walk;
-    private readonly InputAction m_Player1_Crouch;
     private readonly InputAction m_Player1_Block;
     private readonly InputAction m_Player1_Punch;
     private readonly InputAction m_Player1_Kick;
@@ -645,7 +580,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
         private @Player m_Wrapper;
         public Player1Actions(@Player wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walk => m_Wrapper.m_Player1_Walk;
-        public InputAction @Crouch => m_Wrapper.m_Player1_Crouch;
         public InputAction @Block => m_Wrapper.m_Player1_Block;
         public InputAction @Punch => m_Wrapper.m_Player1_Punch;
         public InputAction @Kick => m_Wrapper.m_Player1_Kick;
@@ -662,9 +596,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Walk.started += instance.OnWalk;
             @Walk.performed += instance.OnWalk;
             @Walk.canceled += instance.OnWalk;
-            @Crouch.started += instance.OnCrouch;
-            @Crouch.performed += instance.OnCrouch;
-            @Crouch.canceled += instance.OnCrouch;
             @Block.started += instance.OnBlock;
             @Block.performed += instance.OnBlock;
             @Block.canceled += instance.OnBlock;
@@ -684,9 +615,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Walk.started -= instance.OnWalk;
             @Walk.performed -= instance.OnWalk;
             @Walk.canceled -= instance.OnWalk;
-            @Crouch.started -= instance.OnCrouch;
-            @Crouch.performed -= instance.OnCrouch;
-            @Crouch.canceled -= instance.OnCrouch;
             @Block.started -= instance.OnBlock;
             @Block.performed -= instance.OnBlock;
             @Block.canceled -= instance.OnBlock;
@@ -721,7 +649,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player2;
     private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
     private readonly InputAction m_Player2_Walk;
-    private readonly InputAction m_Player2_Crouch;
     private readonly InputAction m_Player2_Block;
     private readonly InputAction m_Player2_Punch;
     private readonly InputAction m_Player2_Kick;
@@ -731,7 +658,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
         private @Player m_Wrapper;
         public Player2Actions(@Player wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walk => m_Wrapper.m_Player2_Walk;
-        public InputAction @Crouch => m_Wrapper.m_Player2_Crouch;
         public InputAction @Block => m_Wrapper.m_Player2_Block;
         public InputAction @Punch => m_Wrapper.m_Player2_Punch;
         public InputAction @Kick => m_Wrapper.m_Player2_Kick;
@@ -748,9 +674,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Walk.started += instance.OnWalk;
             @Walk.performed += instance.OnWalk;
             @Walk.canceled += instance.OnWalk;
-            @Crouch.started += instance.OnCrouch;
-            @Crouch.performed += instance.OnCrouch;
-            @Crouch.canceled += instance.OnCrouch;
             @Block.started += instance.OnBlock;
             @Block.performed += instance.OnBlock;
             @Block.canceled += instance.OnBlock;
@@ -770,9 +693,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Walk.started -= instance.OnWalk;
             @Walk.performed -= instance.OnWalk;
             @Walk.canceled -= instance.OnWalk;
-            @Crouch.started -= instance.OnCrouch;
-            @Crouch.performed -= instance.OnCrouch;
-            @Crouch.canceled -= instance.OnCrouch;
             @Block.started -= instance.OnBlock;
             @Block.performed -= instance.OnBlock;
             @Block.canceled -= instance.OnBlock;
@@ -805,7 +725,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
     public interface IPlayer1Actions
     {
         void OnWalk(InputAction.CallbackContext context);
-        void OnCrouch(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
         void OnPunch(InputAction.CallbackContext context);
         void OnKick(InputAction.CallbackContext context);
@@ -814,7 +733,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
     public interface IPlayer2Actions
     {
         void OnWalk(InputAction.CallbackContext context);
-        void OnCrouch(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
         void OnPunch(InputAction.CallbackContext context);
         void OnKick(InputAction.CallbackContext context);
