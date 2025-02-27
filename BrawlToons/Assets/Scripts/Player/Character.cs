@@ -7,6 +7,8 @@ public class Character : MonoBehaviour, IDamageable
 
     public int maxHealth = 100;
     public int health = 100;
+    public ParticleSystem ParticleHit; //esto se tiene que cambiar Pol
+
 
     void Start()
     {
@@ -56,6 +58,9 @@ public class Character : MonoBehaviour, IDamageable
             }
         }
         health -= damage;
+        
+        ParticleHit.Play(); //AQUI SE HACE EL EFECTO DE PARTICULAS Pol
+
         if (health <= 0)
         {
             //Destroy(gameObject);
