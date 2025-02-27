@@ -407,7 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef7deba308dfa44ca989feac14ed6cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bufferTime: 1
+  bufferTime: 0.3
   animator: {fileID: 0}
 --- !u!1 &245881839
 GameObject:
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef7deba308dfa44ca989feac14ed6cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bufferTime: 1
+  bufferTime: 0.3
   animator: {fileID: 0}
 --- !u!114 &259043885
 MonoBehaviour:
