@@ -58,7 +58,6 @@ public class MatchManager : MonoBehaviour
     }
     public void EndGame(int playerWinner)
     {
-        Debug.Log("Player " + playerWinner + " Wins!");
         GameObject.Find("P1").GetComponent<Player1Control>().enabled = false;
         if (SceneManager.GetActiveScene().name == "AI")
         {

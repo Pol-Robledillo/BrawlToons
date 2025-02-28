@@ -33,7 +33,6 @@ public class AudioSettings : MonoBehaviour
     // Ajustar volumen y guardar en PlayerPrefs
     private void SetMusicVolume(float volume)
     {
-        Debug.Log(volume);
         audioMixer.SetFloat("Music", Mathf.Log10(Mathf.Max(volume, 0.0001f)) * 20);
         PlayerPrefs.SetFloat("MusicVolume", volume);
         PlayerPrefs.Save();

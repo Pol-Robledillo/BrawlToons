@@ -20,7 +20,6 @@ public class PostMatch : MonoBehaviour
 
     public void OnFinishMatch(int winnerId)
     {
-        Debug.Log("Match Finished");
         Matches match = new Matches()
         {
             match_id = 0,
@@ -88,7 +87,6 @@ public class PostMatch : MonoBehaviour
         using (UnityWebRequest request = UnityWebRequest.Get($"{ApiBaseUrlPC}/GET/{playerId},{characterId}"))
         {
             yield return request.SendWebRequest();
-            Debug.Log("aaaa");
             if (request.result == UnityWebRequest.Result.Success)
             {
                 var playerCharacter = JsonConvert.DeserializeObject<PlayerCharacter>(request.downloadHandler.text);
@@ -100,12 +98,7 @@ public class PostMatch : MonoBehaviour
                 {
                     playerCharacter.defeats += 1;
                 }
-                Debug.Log("Ci");
                 StartCoroutine(UpdatePlayerCharacter(playerCharacter));
-            }
-            else
-            {
-                Debug.Log("tete no va");
             }
         }
     }
@@ -125,16 +118,11 @@ public class PostMatch : MonoBehaviour
             {
                 Debug.LogError($"Error: {request.error}");
             }
-            else
-            {
-                Debug.Log("Ci");
-            }
         }
     }
 
     private IEnumerator AddMatch(Matches match)
     {
-        Debug.Log("Match");
         string jsonData = JsonConvert.SerializeObject(match);
         using (UnityWebRequest request = new UnityWebRequest($"{ApiBaseUrlMatch}/PostMatch", "POST"))
         {
@@ -148,10 +136,6 @@ public class PostMatch : MonoBehaviour
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError($"Error: {request.error}");
-            }
-            else
-            {
-                Debug.Log("Ci");
             }
         }
     }
