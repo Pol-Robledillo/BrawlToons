@@ -34,9 +34,8 @@ Once downloaded, follow the installation instructions to enable login functional
 
 ## 🚀 Get Started
 
-1. Download and install the game.
-2. Install the required API for login.
-3. Choose your fighter and jump into battle!
-4. Master the controls and defeat your opponent.
+1. Download the game.
+2. Download the API for login.
+3. 
 
 Get ready to fight! 🔥
