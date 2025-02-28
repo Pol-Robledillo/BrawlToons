@@ -28,7 +28,7 @@ Welcome to **BrawlToons**, a 2.5D fighting game with a low-poly style where stra
 
 To log into the game, you need to download the **BrawlToons API**. This API handles authentication and player data.  
 
-🔗 **Download the API here:** _[[Link to be added](https://github.com/RaulPalomo/BrawlToonsAPI)]_  
+🔗 **Download the API here:** _[[BrawlToonsAPI](https://github.com/RaulPalomo/BrawlToonsAPI)]_  
 
 Once downloaded, follow the installation instructions to enable login functionality.
 
@@ -36,6 +36,7 @@ Once downloaded, follow the installation instructions to enable login functional
 
 1. Download the game.
 2. Download the API for login.
-3. 
+3. Open the API project on Visual Studio Community
+4. Build a solution and execute it
 
-Get ready to fight! 🔥
+Now you are ready to start fighting! 🔥
