@@ -17,8 +17,8 @@ Welcome to **BrawlToons**, a 2.5D fighting game with a low-poly style where stra
 ### **Player 2 (Right Side)**
 | Key | Action |
 |----|---------|
-| **➡ (Right Arrow)** | Move Forward |
-| **⬅ (Left Arrow)** | Move Backward |
+| **➡ (Right Arrow)** | Move Backward |
+| **⬅ (Left Arrow)** | Move Forward |
 | **1 (Numpad)** | Block |
 | **2 (Numpad)** | Punch |
 | **3 (Numpad)** | Kick |
