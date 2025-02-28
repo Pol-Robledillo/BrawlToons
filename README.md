@@ -36,7 +36,7 @@ Once downloaded, follow the installation instructions to enable login functional
 
 1. Download the game.
 2. Download the API for login.
-3. Open the API project on Visual Studio Community
-4. Build a solution and execute it
+3. Open the API project on Visual Studio Community.
+4. Build a solution and execute it.
 
 Now you are ready to start fighting! 🔥
