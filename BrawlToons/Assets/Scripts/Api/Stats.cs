@@ -15,7 +15,7 @@ public class Stats : MonoBehaviour
     private List<PlayerCharacter> playerCharacterList = new List<PlayerCharacter>();
     public void Start()
     {
-        //OnEnterRanking(1);
+        
     }
     public void OnEnterRanking(int playerNum)
     {
