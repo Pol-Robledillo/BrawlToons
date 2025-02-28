@@ -2520,6 +2520,7 @@ MonoBehaviour:
   gameCountDown: {fileID: 1910909476}
   winnerMessage: {fileID: 284814108}
   winnerText: {fileID: 284814109}
+  isMatchOver: 0
 --- !u!114 &1014613607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4014,6 +4015,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1716801668
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3895060906744547697, guid: e950250f6a084c84384f16e00fda44e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.36171436
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895060906744547697, guid: e950250f6a084c84384f16e00fda44e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.0455103
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895060906744547697, guid: e950250f6a084c84384f16e00fda44e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -31.310207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895060906744547697, guid: e950250f6a084c84384f16e00fda44e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895060906744547697, guid: e950250f6a084c84384f16e00fda44e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895060906744547697, guid: e950250f6a084c84384f16e00fda44e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895060906744547697, guid: e950250f6a084c84384f16e00fda44e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895060906744547697, guid: e950250f6a084c84384f16e00fda44e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895060906744547697, guid: e950250f6a084c84384f16e00fda44e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895060906744547697, guid: e950250f6a084c84384f16e00fda44e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407065508444028267, guid: e950250f6a084c84384f16e00fda44e2, type: 3}
+      propertyPath: m_Name
+      value: Maira
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e950250f6a084c84384f16e00fda44e2, type: 3}
 --- !u!1 &1740257457
 GameObject:
   m_ObjectHideFlags: 0
@@ -20285,3 +20343,4 @@ SceneRoots:
   - {fileID: 388462625}
   - {fileID: 1388534165}
   - {fileID: 1014613605}
+  - {fileID: 1716801668}
