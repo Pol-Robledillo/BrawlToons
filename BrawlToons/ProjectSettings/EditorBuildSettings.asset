@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 9d346ec994fde4442aa0d831921f379d
+  - enabled: 1
+    path: Assets/Scenes/Stats.unity
+    guid: 7102345481f23914f86c9a48d999a3c1
+  - enabled: 1
+    path: Assets/Scenes/CharacterSelection.unity
+    guid: 7afeee6849c42804c9779d6c0770422c
+  - enabled: 1
+    path: Assets/Scenes/CharacterSelectionAI.unity
+    guid: d70c55734bfab3a4b9d68dd941bb2c4f
+  - enabled: 1
+    path: Assets/Scenes/AI.unity
+    guid: c11d126357b91d74eaf0f68d3c7880ab
+  - enabled: 1
+    path: Assets/Scenes/PvP.unity
+    guid: efc740e2f46061c4ab818479d961a9b3
+  m_configObjects: {}
